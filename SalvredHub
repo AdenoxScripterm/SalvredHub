@@ -57,3 +57,5 @@ local Bladeball = PhantomForcesWindow:NewSection("BladeBall")
 
 Bladeball:CreateButton("MyHub", function()loadstring(game:HttpGet("https://pastebin.com/raw/0vvStZGN"))()
 end)
+
+local Bladeball = PhantomForcesWindow:NewSection("Doomspire")
