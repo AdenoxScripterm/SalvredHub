@@ -1,8 +1,8 @@
 local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
 
-local PhantomForcesWindow = Library:NewWindow("SalvredHub1.5")
+local PhantomForcesWindow = Library:NewWindow("SalvredHub")
 
-local Bladeball = PhantomForcesWindow:NewSection("SalvredTab")
+local Bladeball = PhantomForcesWindow:NewSection("Universal")
 
 Bladeball:CreateToggle("???", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3ABlade%20Ball%20Parry",true))()
 end)
@@ -51,4 +51,9 @@ end)
 
 
 Bladeball:CreateButton("BLCKHUBNTW", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/1f0yt/community/main/BLCK"))()
+end)
+
+local Bladeball = PhantomForcesWindow:NewSection("BladeBall")
+
+Bladeball:CreateButton("MyHub", function()loadstring(game:HttpGet("https://pastebin.com/raw/0vvStZGN"))()
 end)
