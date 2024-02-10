@@ -67,3 +67,8 @@ local Bladeball = PhantomForcesWindow:NewSection("PrisonLife")
 
 Bladeball:CreateButton("PrisonWare", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/Denverrz/scripts/master/PRISONWARE_v1.3.txt"))();
 end)
+
+local Bladeball = PhantomForcesWindow:NewSection("Legends Of Speed")
+
+Bladeball:CreateButton("MyHub", function()loadstring(game:HttpGet("loadstring(game:HttpGet("https://pastebin.com/raw/K6dXZxtG"))()"))()
+end)
