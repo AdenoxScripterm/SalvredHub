@@ -70,5 +70,5 @@ end)
 
 local Bladeball = PhantomForcesWindow:NewSection("Legends Of Speed")
 
-Bladeball:CreateButton("MyHub", function()loadstring(game:HttpGet("loadstring(game:HttpGet("https://pastebin.com/raw/K6dXZxtG"))()"))()
+Bladeball:CreateButton("MyHub", function()loadstring(game:HttpGet("loadstring(game:HttpGet("https://pastebin.com/raw/K6dXZxtG"))()
 end)
