@@ -80,7 +80,7 @@ end)
 Bladeball:CreateButton("TigerEditedByMe", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/TigerEdited/main/Tiger%20Admin"))()
 end)
 
-local PhantomForcesWindow = Library:NewWindow("SalvredHub+GE")
+local Bladeball = PhantomForcesWindow:NewSection("LegendsOfSpeed")
 
-Bladeball:CreateButton("MyHub1", function()loadstring(game:HttpGet("https://pastebin.com/raw/K6dXZxtG"))()
+Bladeball:CreateButton("MyHub", function()loadstring(game:HttpGet("https://pastebin.com/raw/K6dXZxtG"))()
 end)
