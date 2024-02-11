@@ -76,3 +76,6 @@ local Bladeball = PhantomForcesWindow:NewSection("PrisonLife")
 
 Bladeball:CreateButton("PrisonWare", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/Denverrz/scripts/master/PRISONWARE_v1.3.txt"))();
 end)
+
+
+local PhantomForcesWindow = Library:NewWindow("SalvredHub+GE")
