@@ -81,3 +81,6 @@ Bladeball:CreateButton("TigerEditedByMe", function()loadstring(game:HttpGet("htt
 end)
 
 local PhantomForcesWindow = Library:NewWindow("SalvredHub+GE")
+
+Bladeball:CreateButton("MyHub1", function()loadstring(game:HttpGet("https://pastebin.com/raw/K6dXZxtG"))()
+end)
