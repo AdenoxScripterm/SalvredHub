@@ -84,3 +84,8 @@ local Bladeball = PhantomForcesWindow:NewSection("LegendsOfSpeed")
 
 Bladeball:CreateButton("MyHub", function()loadstring(game:HttpGet("https://pastebin.com/raw/K6dXZxtG"))()
 end)
+
+local Bladeball = PhantomForcesWindow:NewSection("Evade")
+
+Bladeball:CreateButton("PepesHub", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/PepesGH1/stuff/main/evadeloader.lua"))()
+end)
