@@ -8,7 +8,7 @@ Bladeball:CreateToggle("???", function()loadstring(game:HttpGet("https://raw.git
 end)
 
 
-Bladeball:CreateButton("FlyMobile", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/XNEOFF/FlyGuiV3/main/FlyGuiV3.txt"))()
+Bladeball:CreateButton("FlyMobile", function()loadstring(game:HttpGet("https://pastebin.com/raw/XEhjj81x"))()
 end)
 
 
