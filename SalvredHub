@@ -98,3 +98,5 @@ local PhantomForcesWindow = Library:NewWindow("SalvredHubV2")
 
 local BladeBall = PhantomForcesWindow:NewSection("V2RD")
 
+BladeBall:CreateButton("MyHubDom", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/Doomspire/main/DoomspireTeleport"))()
+end)
