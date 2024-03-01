@@ -64,6 +64,10 @@ Bladeball:CreateButton("MyHub", function()loadstring(game:HttpGet("https://paste
 end)
 
 
+Bladeball:CreateButton("MyHubV2", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/BladeBallV1/main/BladeBallV1NM"))()
+end)
+
+
 local Bladeball = PhantomForcesWindow:NewSection("Doomspire")
 
 
