@@ -93,3 +93,8 @@ local Bladeball = PhantomForcesWindow:NewSection("Evade")
 
 Bladeball:CreateButton("PepesHub", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/PepesGH1/stuff/main/evadeloader.lua"))()
 end)
+
+local PhantomForcesWindow = Library:NewWindow("SalvredHubV2")
+
+local BladeBall = PhantomForcesWindow:NewSection("V2RD")
+
