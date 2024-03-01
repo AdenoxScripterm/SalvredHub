@@ -12,7 +12,7 @@ Bladeball:CreateButton("FlyMobile", function()loadstring(game:HttpGet("https://p
 end)
 
 
-Bladeball:CreateButton("IY", function()loadstring(game:httpget("https://raw.githubusercontent.com/AdenoxScripterm/SalvredYield/main/SalvredYeild"))()
+Bladeball:CreateButton("IY", function()loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
 end)
 
 
@@ -20,7 +20,7 @@ Bladeball:CreateButton("VflyEdited", function()loadstring(game:HttpGet("https://
 end)
 
 
-Bladeball:CreateButton("SystemBroken", function()loadstring(game:httpget("https://raw.githubusercontent.com/AdenoxScripterm/SystemSalvred/main/SalvredBrokenor"))()
+Bladeball:CreateButton("SystemBroken", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script"))()
 end)
 
 
