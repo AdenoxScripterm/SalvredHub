@@ -1,6 +1,6 @@
 local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
 
-local PhantomForcesWindow = Library:NewWindow("SalvredHub")
+local PhantomForcesWindow = Library:NewWindow("GayHub")
 
 local Bladeball = PhantomForcesWindow:NewSection("Universal")
 
