@@ -23,7 +23,7 @@ local PlayerTab = Window:MakeTab({
 })
 
 local Section = PlayerTab:AddSection({
- Name = "Movement"
+ Name = "LocalPlayer"
 })
 
 PlayerTab:AddSlider({
