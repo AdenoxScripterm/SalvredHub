@@ -1,102 +1,351 @@
-local Library = loadstring(Game:HttpGet("https://raw.githubusercontent.com/bloodball/-back-ups-for-libs/main/wizard"))()
-
-local PhantomForcesWindow = Library:NewWindow("SalvredHub")
-
-local Bladeball = PhantomForcesWindow:NewSection("Universal")
-
-Bladeball:CreateToggle("???", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3ABlade%20Ball%20Parry",true))()
-end)
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
 
 
-Bladeball:CreateButton("FlyMobile", function()loadstring(game:HttpGet("https://pastebin.com/raw/XEhjj81x"))()
-end)
+local Window = OrionLib:MakeWindow({Name = "SalvredHub", HidePremium = false, SaveConfig = true, ConfigFolder = "SalvredHubCode"})
+
+--[[
+Name = <string> - The name of the UI.
+HidePremium = <bool> - Whether or not the user details shows Premium status or not.
+SaveConfig = <bool> - Toggles the config saving in the UI.
+ConfigFolder = <string> - The name of the folder where the configs are saved.
+IntroEnabled = <bool> - Whether or not to show the intro animation.
+IntroText = <string> - Text to show in the intro animation.
+IntroIcon = <string> - URL to the image you want to use in the intro animation.
+Icon = <string> - URL to the image you want displayed on the window.
+CloseCallback = <function> - Function to execute when the window is closed.
+]]
 
 
-Bladeball:CreateButton("IY", function()loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
-end)
+local Universal = Window:MakeTab({
+	Name = "Universal",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
 
 
-Bladeball:CreateButton("VflyEdited", function()loadstring(game:HttpGet("https://pastebin.com/raw/xRr0MSDy"))()
-end)
+Universal:AddButton({
+	Name = "FlyMobileV1",
+	Callback = function()loadstring(game:HttpGet("https://pastebin.com/raw/XEhjj81x"))()
+      		print("SexoKat")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 
-Bladeball:CreateButton("SystemBroken", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script"))()
-end)
+Universal:AddButton({
+	Name = "TpPlayers",
+	Callback = function()loadstring(game:HttpGet("https://pastebin.com/raw/JCWAp19A", true))()
+      		print("button pressed")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 
-Bladeball:CreateButton("NA", function()loadstring(game:HttpGet("https://scriptblox.com/raw/Universal-Script-Nameless-Cmds-6856"))()
-end)
+
+Universal:AddButton({
+	Name = "IY",
+	Callback = function()loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+      		print("Soon...")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 
-local Bladeball = PhantomForcesWindow:NewSection("Brookhaven")
+Universal:AddButton({
+	Name = "CarFly",
+	Callback = function()loadstring(game:HttpGet("https://pastebin.com/raw/xRr0MSDy"))()
+      		print("sex")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 
-Bladeball:CreateButton("IceHub", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/IceMael7/NewIceHub/main/Brookhaven"))()
-end)
+Universal:AddButton({
+	Name = "SystemBroken(Anims)",
+	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script"))()
+      		print("sex")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 
-Bladeball:CreateButton("TeleportPLAYERS", function()loadstring(game:HttpGet("https://pastebin.com/raw/JCWAp19A", true))()
-end)
+local Brookhaven = Window:MakeTab({
+	Name = "Brookhaven",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
 
 
-Bladeball:CreateButton("REDzHubBrookhvn", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/REDzHUB/main/REDzHUB"))()
-end)
+Brookhaven:AddButton({
+	Name = "IceHub",
+	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/IceMael7/NewIceHub/main/Brookhaven"))()
+      		print("button pressed")
+  	end    
+})
 
-local Bladeball = PhantomForcesWindow:NewSection("BloxFruit")
-
-
-Bladeball:CreateButton("REDzHubBLOXFRUITS", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/redz9999"))()
-end)
-
-
-Bladeball:CreateButton("FTSXHUB", function()loadstring(game:HttpGet(('https://raw.githubusercontent.com/Tulam2000/FTS-HUB/main/FTS%20x%20Hub')))()
-end)
-
-
-Bladeball:CreateButton("BLCKHUBNTW", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/1f0yt/community/main/BLCK"))()
-end)
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 
-local Bladeball = PhantomForcesWindow:NewSection("BladeBall")
+Brookhaven:AddButton({
+	Name = "REDzHub",
+	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/REDzHUB/main/REDzHUB"))()
+      		print("button pressed")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 
-Bladeball:CreateButton("MyHub", function()loadstring(game:HttpGet("https://pastebin.com/raw/0vvStZGN"))()
-end)
+local BloxFruit = Window:MakeTab({
+	Name = "BloxFruit",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
 
 
-Bladeball:CreateButton("MyHubV2", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/BladeBallV1/main/BladeBallV1NM"))()
-end)
+BloxFruit:AddButton({
+	Name = "REDzHub",
+	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/redz9999"))()
+      		print("button pressed")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 
-local Bladeball = PhantomForcesWindow:NewSection("Doomspire")
+BloxFruit:AddButton({
+	Name = "FTS X Hub",
+	Callback = function()loadstring(game:HttpGet(('https://raw.githubusercontent.com/Tulam2000/FTS-HUB/main/FTS%20x%20Hub')))()
+      		print("button pressed")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 
-Bladeball:CreateButton("MyHub", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/Doomspire/main/DoomspireTeleport"))()
-end)
+local Section = BloxFruit:AddSection({
+	Name = "NotWorking/Bugged/Patched"
+})
+
+--[[
+Name = <string> - The name of the section.
+]]
 
 
-local Bladeball = PhantomForcesWindow:NewSection("PrisonLife")
+BloxFruit:AddButton({
+	Name = "BlackHub/BlckHub",
+	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/1f0yt/community/main/BLCK"))()
+      		print("button pressed")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
 
-Bladeball:CreateButton("PrisonWare", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/Denverrz/scripts/master/PRISONWARE_v1.3.txt"))();
-end)
+local BladeBall = Window:MakeTab({
+	Name = "BladeBall",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
 
-Bladeball:CreateButton("TigerEditedByMe", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/TigerEdited/main/Tiger%20Admin"))()
-end)
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
 
-local Bladeball = PhantomForcesWindow:NewSection("LegendsOfSpeed")
 
-Bladeball:CreateButton("MyHub", function()loadstring(game:HttpGet("https://pastebin.com/raw/K6dXZxtG"))()
-end)
+BladeBall:AddButton({
+	Name = "MyScriptV1",
+	Callback = function()loadstring(game:HttpGet("https://pastebin.com/raw/0vvStZGN"))()
+      		print("button pressed")
+  	end    
+})
 
-local Bladeball = PhantomForcesWindow:NewSection("Evade")
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
-Bladeball:CreateButton("PepesHub", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/PepesGH1/stuff/main/evadeloader.lua"))()
-end)
 
-local PhantomForcesWindow = Library:NewWindow("SalvredHubV2")
+BladeBall:AddButton({
+	Name = "MyScriptV2",
+	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/BladeBallV1/main/BladeBallV1NM"))()
+      		print("button pressed")
+  	end    
+})
 
-local BladeBall = PhantomForcesWindow:NewSection("V2RD")
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
 
-BladeBall:CreateButton("MyHubDom", function()loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/Doomspire/main/DoomspireTeleport"))()
-end)
+
+local DoomSpire = Window:MakeTab({
+	Name = "DoomSpire",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+
+
+DoomSpire:AddButton({
+	Name = "TpIslands",
+	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/Doomspire/main/DoomspireTeleport"))()
+      		print("button pressed")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+
+local PrisonLife = Window:MakeTab({
+	Name = "PrisonLife",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+
+
+PrisonLife:AddButton({
+	Name = "PrisonWare",
+	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/Denverrz/scripts/master/PRISONWARE_v1.3.txt"))();
+      		print("button pressed")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+
+PrisonLife:AddButton({
+	Name = "TigerAdmin",
+	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/TigerEdited/main/Tiger%20Admin"))()
+      		print("button pressed")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+
+local LegendsOfSpeed = Window:MakeTab({
+	Name = "LegendsOfSpeed",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+
+
+LegendsOfSpeed:AddButton({
+	Name = "MyScript",
+	Callback = function()loadstring(game:HttpGet("https://pastebin.com/raw/K6dXZxtG"))()
+      		print("button pressed")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+
+local Evade = Window:MakeTab({
+	Name = "Evade",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+
+
+Evade:AddButton({
+	Name = "PepesHub",
+	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/PepesGH1/stuff/main/evadeloader.lua"))()
+      		print("button pressed")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
