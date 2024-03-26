@@ -38,19 +38,6 @@ PlayerTab:AddSlider({
  end    
 })
 
-PlayerTab:AddSlider({
- Name = "Jump Height",
- Min = 16,
- Max = 350,
- Default = 16,
- Color = Color3.fromRGB(255,255,255),
- Increment = 1,
- ValueName = "Height",
- Callback = function(Value)
-  game.Players.LocalPlayer.Character.Humanoid.JumpPower = Value
- end    
-})
-
 
 local Universal = Window:MakeTab({
 	Name = "Universal",
