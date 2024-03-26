@@ -28,7 +28,7 @@ local Section = PlayerTab:AddSection({
 PlayerTab:AddSlider({
  Name = "Walkspeed",
  Min = 16,
- Max = 10000,
+ Max = 350,
  Default = 16,
  Color = Color3.fromRGB(255,255,255),
  Increment = 1,
@@ -41,8 +41,8 @@ PlayerTab:AddSlider({
 PlayerTab:AddSlider({
  Name = "Jump Height",
  Min = 16,
- Max = 10000,
- Default = 5,
+ Max = 350,
+ Default = 16,
  Color = Color3.fromRGB(255,255,255),
  Increment = 1,
  ValueName = "Height",
