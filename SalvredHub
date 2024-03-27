@@ -132,6 +132,19 @@ PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
 
 
 Brookhaven:AddButton({
+	Name = "R4",
+	Callback = function()loadstring(game:HttpGet('https://raw.githubusercontent.com/M1ZZ001/BrookhavenR4D/main/Brookhaven%20R4D%20Script'))()
+      		print("button pressed")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+
+Brookhaven:AddButton({
 	Name = "IceHub",
 	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/IceMael7/NewIceHub/main/Brookhaven"))()
       		print("button pressed")
