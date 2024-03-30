@@ -414,7 +414,7 @@ Callback = <function> - The function of the button.
 ]]
 
 
-local MurderMystery2 = Window:MakeTab({
+local MM2 = Window:MakeTab({
 	Name = "MurderMystery2",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
@@ -427,7 +427,7 @@ PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
 ]]
 
 
-MurderMystery2:AddButton({
+MM2:AddButton({
 	Name = "Vynixus",
 	Callback = function()loadstring(game:GetObjects("rbxassetid://4001118261")[1].Source)()
       		print("button pressed")
@@ -440,7 +440,7 @@ Callback = <function> - The function of the button.
 ]]
 
 
-local Section = MurderMystery2:AddSection({
+local Section = MM2:AddSection({
 	Name = "HubsForGame"
 })
 
@@ -449,7 +449,7 @@ Name = <string> - The name of the section.
 ]]
 
 
-MurderMystery2:AddButton({
+MM2:AddButton({
 	Name = "UnFairHub",
 	Callback = function()loadstring(game:HttpGet(('https://raw.githubusercontent.com/rblxscriptsnet/unfair/main/rblxhub.lua'),true))()
       		print("button pressed")
