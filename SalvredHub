@@ -106,8 +106,8 @@ Callback = <function> - The function of the button.
 
 
 Universal:AddButton({
-	Name = "SystemBroken(Anims)",
-	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/H20CalibreYT/SystemBroken/main/script"))()
+	Name = "SystemSalvred(Anims)",
+	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/SystemSalvred/main/SalvredBrokenor"))()
       		print("sex")
   	end    
 })
