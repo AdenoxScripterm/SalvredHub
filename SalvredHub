@@ -222,6 +222,19 @@ Callback = <function> - The function of the button.
 ]]
 
 
+BloxFruit:AddButton({
+	Name = "AnnieHub",
+	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/Anniecuti/Free-Scr/main/Annie-Hub.lua"))()
+      		print("button pressed")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+
 local Section = BloxFruit:AddSection({
 	Name = "NotWorking/Bugged/Patched"
 })
