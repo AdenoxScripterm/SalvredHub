@@ -197,19 +197,6 @@ PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
 
 
 BloxFruit:AddButton({
-	Name = "REDzHub",
-	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/redz9999"))()
-      		print("button pressed")
-  	end    
-})
-
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
-
-
-BloxFruit:AddButton({
 	Name = "FTS X Hub",
 	Callback = function()loadstring(game:HttpGet(('https://raw.githubusercontent.com/Tulam2000/FTS-HUB/main/FTS%20x%20Hub')))()
       		print("button pressed")
@@ -236,7 +223,7 @@ Callback = <function> - The function of the button.
 
 
 local Section = BloxFruit:AddSection({
-	Name = "NotWorking/Bugged/Patched"
+	Name = "Best"
 })
 
 --[[
@@ -247,6 +234,32 @@ Name = <string> - The name of the section.
 BloxFruit:AddButton({
 	Name = "BlackHub/BlckHub",
 	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/1f0yt/community/main/BLCK"))()
+      		print("button pressed")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+
+BloxFruit:AddButton({
+	Name = "W Azure",
+	Callback = function()loadstring(game:HttpGet("https://api.luarmor.net/files/v3/loaders/3b2169cf53bc6104dabe8e19562e5cc2.lua"))()
+      		print("button pressed")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+
+BloxFruit:AddButton({
+	Name = "REDzHub",
+	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/BloxFruits/main/redz9999"))()
       		print("button pressed")
   	end    
 })
