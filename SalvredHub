@@ -491,6 +491,19 @@ Callback = <function> - The function of the button.
 ]]
 
 
+Mm2:AddButton({
+	Name = "SkiHub",
+	Callback = function()loadstring(game:HttpGet(("https://pastebin.com/raw/mT10xnt7"), true))() 
+      		print("button pressed")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+
 local Section = Mm2:AddSection({
 	Name = "HubsForGame"
 })
