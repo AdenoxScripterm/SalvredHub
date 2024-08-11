@@ -214,7 +214,7 @@ Callback = <function> - The function of the button.
 
 
 Brookhaven:AddButton({
-	Name = "JulHub",
+	Name = "JulHub(Discontinued/Deleted)",
 	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/JulHubz/JulHub/main/JulHub"))()
       		print("button pressed")
   	end    
