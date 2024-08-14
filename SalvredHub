@@ -4,7 +4,7 @@ local Window = OrionLib:MakeWindow({Name = "SalvredHub", HidePremium = false, Sa
 
 local PlayerTab = Window:MakeTab({
  Name = "LocalPlayer",
- Icon = "rbxassetid://17366458568",
+ Icon = "rbxassetid://12730597972",
  PremiumOnly = false
 })
 
