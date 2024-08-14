@@ -53,7 +53,7 @@ PlayerTab:AddSlider({
 
 local Universal = Window:MakeTab({
 	Name = "Universal",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://11558559086",
 	PremiumOnly = false
 })
 
@@ -188,7 +188,7 @@ Callback = <function> - The function of the button.
 
 local Brookhaven = Window:MakeTab({
 	Name = "Brookhaven",
-	Icon = "rbxassetid://18949822225",
+	Icon = "rbxassetid://11558559086",
 	PremiumOnly = false
 })
 
