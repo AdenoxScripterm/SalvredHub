@@ -4,7 +4,7 @@ local Window = OrionLib:MakeWindow({Name = "SalvredHub", HidePremium = false, Sa
 
 local PlayerTab = Window:MakeTab({
  Name = "LocalPlayer",
- Icon = "rbxassetid://4483345998",
+ Icon = "rbxassetid://17366458568",
  PremiumOnly = false
 })
 
@@ -82,7 +82,7 @@ Universal:AddButton({
 	Callback = function()OrionLib:MakeNotification({
 	Name = "Creator",
 	Content = "Creator From Script: Salvred. Library Used: Orion Library",
-	Image = "rbxassetid://4483345998",
+	Image = "rbxassetid://17366458568",
 	Time = 5
 })
 
