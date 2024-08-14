@@ -25,18 +25,30 @@ PlayerTab:AddSlider({
  end    
 })
 
-
 PlayerTab:AddSlider({
  Name = "JumpPower",
  Min = 50,
  Max = 500,
- Default = 70,
+ Default = 50,
  Color = Color3.fromRGB(255,0,0),
  Increment = 1,
  ValueName = "JP",
  Callback = function(JP)
   game.Players.LocalPlayer.Character.Humanoid.JumpPower = JP
  end    
+})
+
+PlayerTab:AddSlider({
+    Name = "Gravity",
+    Min = 50,
+    Max = 500,
+    Default = 196,  -- La gravedad predeterminada de Roblox es 196.2
+    Color = Color3.fromRGB(255,0,0),
+    Increment = 1,
+    ValueName = "Gravity",
+    Callback = function(Gravity)
+        game.Workspace.Gravity = Gravity
+    end    
 })
 
 local Universal = Window:MakeTab({
