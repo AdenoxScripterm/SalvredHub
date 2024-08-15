@@ -19,7 +19,7 @@ PlayerTab:AddSlider({
  Default = 16,
  Color = Color3.fromRGB(255,255,255),
  Increment = 1,
- ValueName = "WS",
+ ValueName = "WalkSpeed",
  Callback = function(WS)
   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = WS
  end    
@@ -32,7 +32,7 @@ PlayerTab:AddSlider({
  Default = 50,
  Color = Color3.fromRGB(255,0,0),
  Increment = 1,
- ValueName = "JP",
+ ValueName = "JumpPower",
  Callback = function(JP)
   game.Players.LocalPlayer.Character.Humanoid.JumpPower = JP
  end    
