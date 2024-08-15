@@ -101,7 +101,7 @@ end
 
 -- Dropdown para seleccionar el jugador
 playerDropdown = PlayerTab:AddDropdown({
-    Name = "Seleccionar Jugador",
+    Name = "Select Player To View",
     Default = "",
     Options = {},
     Callback = function(Value)
@@ -118,7 +118,7 @@ playerDropdown = PlayerTab:AddDropdown({
 
 -- Toggle para activar/desactivar el seguimiento de la cámara
 PlayerTab:AddToggle({
-    Name = "Activar Seguimiento",
+    Name = "View Selected Player",
     Default = false,
     Callback = function(Value)
         cameraToggle = Value
