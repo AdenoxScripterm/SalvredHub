@@ -495,7 +495,7 @@ Callback = <function> - The function of the button.
 
 local PrisonLife = Window:MakeTab({
 	Name = "PrisonLife",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://18953269522",
 	PremiumOnly = false
 })
 
