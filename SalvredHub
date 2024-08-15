@@ -469,7 +469,7 @@ Callback = <function> - The function of the button.
 
 local DoomSpire = Window:MakeTab({
 	Name = "DoomSpire",
-	Icon = "rbxassetid://18142593358",
+	Icon = "rbxassetid://18135302048",
 	PremiumOnly = false
 })
 
