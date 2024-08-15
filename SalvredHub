@@ -253,7 +253,7 @@ Callback = <function> - The function of the button.
 
 local BloxFruit = Window:MakeTab({
 	Name = "BloxFruit",
-	Icon = "rbxassetid://18951446279",
+	Icon = "rbxassetid://18951446226",
 	PremiumOnly = false
 })
 
