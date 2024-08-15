@@ -1,6 +1,63 @@
 local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/Orion-Library-Edited/main/Orion%20Edited"))()
 local Window = OrionLib:MakeWindow({Name = "SalvredHub", HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
 
+-- Función para verificar y notificar sobre la presencia de objetos en CoreGui
+local function checkAndNotify()
+    local CoreGui = game:GetService("CoreGui")
+    local found = false
+    local names = {}
+    local notificationImageId = "17366458568"  -- ID predeterminado para la notificación
+    
+    -- Variantes de nombres a detectar y sus IDs de notificación
+    local ids = {
+        ["Codex"] = "11558559086",
+        ["Arceus"] = "18951446226",
+        ["Arceus X"] = "18951446226",
+        ["Arceus x"] = "18951446226",
+        ["arceus x"] = "18951446226",
+        ["Arceus X Neo"] = "18951446226",
+        ["Arceus X NEO"] = "18951446226",
+        ["ArceusXNeo"] = "18951446226",
+        ["VegaXAndroidUI"] = "18953320590",
+        ["Delta"] = "12730597972",
+        ["DeltaGui"] = "12730597972",
+        ["G2L"] = "12730597972",
+        ["AppleWare iOS"] = "18954192704",
+        ["Cubix"] = "18135302048",
+        ["Fluxus"] = "17366458568",
+        ["FluxusAndroid"] = "17366458568",
+        ["fluxusandroid"] = "17366458568"
+    }
+    
+    -- Verificar objetos
+    for name, id in pairs(ids) do
+        local obj = CoreGui:FindFirstChild(name)
+        if obj then
+            table.insert(names, name == "VegaXAndroidUI" and "Vega X" or
+                                (name == "G2L" or name == "DeltaGui" and "Delta X" or
+                                (name == "AppleWare iOS" and "AppleWare" or
+                                (name == "Cubix" and "Cubix" or name))))
+            notificationImageId = id
+            found = true
+        end
+    end
+
+    -- Notificar si se encontró algún objeto
+    if found then
+        OrionLib:MakeNotification({
+            Name = "Your Executor",
+            Content = "Executor: " .. table.concat(names, ", "),
+            Image = "rbxassetid://" .. notificationImageId,
+            Time = 5
+        })
+    end
+end
+
+-- Llamar a la función para verificar y notificar al iniciar el script
+checkAndNotify()
+
+-- El resto del código sigue igual
+-- Agrega aquí el resto de tu script...
 
 local PlayerTab = Window:MakeTab({
  Name = "LocalPlayer",
@@ -53,8 +110,8 @@ PlayerTab:AddSlider({
 
 PlayerTab:AddSlider({
     Name = "Camera Fov",
-    Min = 10,
-    Max = 120,
+    Min = 70,
+    Max = 300,
     Default = 70,  -- Valor predeterminado del FOV
     Increment = 1,
     ValueName = "Fov",
