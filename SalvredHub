@@ -705,3 +705,27 @@ Mm2:AddButton({
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
+
+
+--[[
+	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
+]]
+-- new stuff
+_G.CodexUiCustomSettings = {
+			CodexSpooferImage = 18959136669,
+			CodexSpooferText = "SalvredHub",
+			CodexSpooferPoweredBy = "Hey Broo",
+			FloatingIconColor=Color3.fromRGB(34, 38, 54),
+			MainUiBackground = Color3.fromRGB(34, 38, 54),
+			Icons=Color3.fromRGB(255, 255, 255),
+			IconsOff = Color3.fromRGB(255, 255, 255),
+			Fade = false
+		}
+
+
+local DaIconPositionX = ScreenCenterX - DaIconSize.X.Offset / 2
+local DaIconPositionY = ScreenCenterY - DaIconSize.Y.Offset / 2
+DELTA["DaIcon"].Position = UDim2.new(0, DaIconPositionX, 0, DaIconPositionY/20)
+DELTA["DaIcon"].Draggable = true
+DELTA["DaIcon"].Image = "rbxassetid://18959136669"
+DELTA["DaIcon"].BackgroundColor3 = Color3.fromRGB(26, 28, 36)
