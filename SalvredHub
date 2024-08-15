@@ -188,7 +188,7 @@ Callback = <function> - The function of the button.
 
 local Brookhaven = Window:MakeTab({
 	Name = "Brookhaven",
-	Icon = "rbxassetid://11558559086",
+	Icon = "rbxassetid://17366458568",
 	PremiumOnly = false
 })
 
