@@ -338,7 +338,7 @@ PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
 
 
 Brookhaven:AddButton({
-	Name = "R4",
+	Name = "R4D",
 	Callback = function()loadstring(game:HttpGet('https://raw.githubusercontent.com/M1ZZ001/BrookhavenR4D/main/Brookhaven%20R4D%20Script'))()
       		print("button pressed")
   	end    
@@ -711,11 +711,11 @@ Callback = <function> - The function of the button.
 ]]
 -- new stuff
 _G.CodexUiCustomSettings = {
-			CodexSpooferImage = 18959136669,
+			CodexSpooferImage = 18965493710,
 			CodexSpooferText = "SalvredHub",
 			CodexSpooferPoweredBy = "Heyy Bro",
-			FloatingIconColor=Color3.fromRGB(34, 38, 54),
-			MainUiBackground = Color3.fromRGB(34, 38, 54),
+			FloatingIconColor=Color3.fromRGB(0, 0, 0),
+			MainUiBackground = Color3.fromRGB(0, 0, 0),
 			Icons=Color3.fromRGB(255, 255, 255),
 			IconsOff = Color3.fromRGB(255, 255, 255),
 			Fade = false
@@ -730,5 +730,18 @@ local DaIconPositionX = ScreenCenterX - DaIconSize.X.Offset / 2
 local DaIconPositionY = ScreenCenterY - DaIconSize.Y.Offset / 2
 DELTA["DaIcon"].Position = UDim2.new(0, DaIconPositionX, 0, DaIconPositionY/20)
 DELTA["DaIcon"].Draggable = true
-DELTA["DaIcon"].Image = "rbxassetid://18959136669"
-DELTA["DaIcon"].BackgroundColor3 = Color3.fromRGB(26, 28, 36)
+DELTA["DaIcon"].Image = "rbxassetid://18965493710"
+DELTA["DaIcon"].BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+
+DELTA["das"] = Instance.new("UICorner", DELTA["DaIcon"]);
+
+local iconsize = readfile("iconshape")
+if iconsize == "Squircle" then
+    DELTA["das"]["CornerRadius"] = UDim.new(0.20000000298023224, 0);
+elseif iconsize == "Circle" then
+    DELTA["das"]["CornerRadius"] = UDim.new(0.50000000298023224, 0);
+elseif iconsize == "Square" then
+    DELTA["das"]["CornerRadius"] = UDim.new(0, 0);
+else
+    DELTA["das"]["CornerRadius"] = UDim.new(0.20000000298023224, 0);
+end
