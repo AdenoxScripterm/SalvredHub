@@ -596,7 +596,7 @@ Callback = <function> - The function of the button.
 
 local LegendsOfSpeed = Window:MakeTab({
 	Name = "LegendsOfSpeed",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://18979034603",
 	PremiumOnly = false
 })
 
