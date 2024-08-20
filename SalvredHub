@@ -388,6 +388,104 @@ Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
 
+-- Crear sección para los controles de música
+Brookhaven:AddSection({
+    Name = "Car Music"
+})
+
+-- Variable para almacenar el ID de música del carro
+local CarMusicID = ""
+
+-- Añadir un TextBox para el ID de la música del carro
+local CarTextBox = Brookhaven:AddTextbox({
+    Name = "Car Music ID",
+    Default = "",
+    TextDisappear = false,
+    Callback = function(Text)
+        CarMusicID = Text
+    end
+})
+
+-- Añadir un botón de Play para la música del carro
+Brookhaven:AddButton({
+    Name = "Play Car Music",
+    Callback = function()
+        -- Verificar que el jugador esté sentado en un vehículo
+        local character = Player.Character or Player.CharacterAdded:Wait()
+        local humanoid = character:FindFirstChild("Humanoid")
+        local seat = humanoid and humanoid.SeatPart
+
+        if seat and seat:IsA("VehicleSeat") then
+            local musicId = CarMusicID
+            if tonumber(musicId) then
+                -- Debug: Imprimir el ID de música del carro para confirmar
+                print("Playing car music with ID: " .. musicId)
+                
+                -- Reproducir la música del carro
+                local musicArgs = {
+                    [1] = "PickingCarMusicText",
+                    [2] = musicId
+                }
+                
+                local remote = game:GetService("ReplicatedStorage"):FindFirstChild("RE") and game:GetService("ReplicatedStorage").RE:FindFirstChild("1Player1sCa1r")
+                if remote then
+                    remote:FireServer(unpack(musicArgs))
+                else
+                    warn("Remote not found or not correctly named.")
+                end
+            else
+                warn("Please enter a valid Car Music ID")
+            end
+        else
+            warn("You must be sitting in a vehicle to play car music")
+        end
+    end
+})
+
+Brookhaven:AddSection({
+    Name = "Car Music"
+})
+
+-- Variable para almacenar el ID de música de la casa
+local HouseMusicID = ""
+
+-- Añadir un TextBox para el ID de la música de la casa
+local HouseTextBox = Brookhaven:AddTextbox({
+    Name = "House Music ID",
+    Default = "",
+    TextDisappear = false,
+    Callback = function(Text)
+        HouseMusicID = Text
+    end
+})
+
+-- Añadir un botón de Play para la música de la casa
+Brookhaven:AddButton({
+    Name = "Play House Music",
+    Callback = function()
+        -- Reproducir la música de la casa
+        local musicId = HouseMusicID
+        if tonumber(musicId) then
+            -- Debug: Imprimir el ID de música de la casa para confirmar
+            print("Playing house music with ID: " .. musicId)
+            
+            -- Reproducir la música de la casa
+            local musicArgs = {
+                [1] = "PickHouseMusicText",
+                [2] = musicId
+            }
+            
+            local remote = game:GetService("ReplicatedStorage"):FindFirstChild("RE") and game:GetService("ReplicatedStorage").RE:FindFirstChild("1Player1sHous1e")
+            if remote then
+                remote:FireServer(unpack(musicArgs))
+            else
+                warn("Remote not found or not correctly named.")
+            end
+        else
+            warn("Please enter a valid House Music ID")
+        end
+    end
+})
 
 local BloxFruit = Window:MakeTab({
 	Name = "BloxFruit",
