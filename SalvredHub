@@ -390,7 +390,7 @@ Callback = <function> - The function of the button.
 
 -- Crear sección para los controles de música
 Brookhaven:AddSection({
-    Name = "Car Music"
+    Name = "Music Id"
 })
 
 -- Variable para almacenar el ID de música del carro
@@ -440,10 +440,6 @@ Brookhaven:AddButton({
             warn("You must be sitting in a vehicle to play car music")
         end
     end
-})
-
-Brookhaven:AddSection({
-    Name = "House Music"
 })
 
 -- Variable para almacenar el ID de música de la casa
