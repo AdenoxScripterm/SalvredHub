@@ -60,7 +60,7 @@ checkAndNotify()
 -- Agrega aquí el resto de tu script...
 
 local PlayerTab = Window:MakeTab({
- Name = "LocalPlayer",
+ Name = "HolaGadi",
  Icon = "rbxassetid://12730597972",
  PremiumOnly = false
 })
@@ -72,7 +72,7 @@ local Section = PlayerTab:AddSection({
 PlayerTab:AddSlider({
  Name = "Walkspeed",
  Min = 16,
- Max = 350,
+ Max = 3500,
  Default = 16,
  Color = Color3.fromRGB(255,255,255),
  Increment = 1,
@@ -85,7 +85,7 @@ PlayerTab:AddSlider({
 PlayerTab:AddSlider({
  Name = "JumpPower",
  Min = 50,
- Max = 500,
+ Max = 5000,
  Default = 50,
  Color = Color3.fromRGB(255,0,0),
  Increment = 1,
@@ -97,7 +97,7 @@ PlayerTab:AddSlider({
 
 PlayerTab:AddSlider({
     Name = "Gravity",
-    Min = 50,
+    Min = 1,
     Max = 500,
     Default = 196,  -- La gravedad predeterminada de Roblox es 196.2
     Color = Color3.fromRGB(255,0,0),
@@ -111,7 +111,7 @@ PlayerTab:AddSlider({
 PlayerTab:AddSlider({
     Name = "Camera Fov",
     Min = 70,
-    Max = 300,
+    Max = 150,
     Default = 70,  -- Valor predeterminado del FOV
     Increment = 1,
     ValueName = "Fov",
