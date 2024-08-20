@@ -443,7 +443,7 @@ Brookhaven:AddButton({
 })
 
 Brookhaven:AddSection({
-    Name = "Car Music"
+    Name = "House Music"
 })
 
 -- Variable para almacenar el ID de música de la casa
