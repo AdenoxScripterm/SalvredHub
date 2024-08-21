@@ -226,7 +226,7 @@ Content = <string> - The content of the notification.
 Image = <string> - The icon of the notification.
 Time = <number> - The duration of the notfication.
 ]]
-      		print("button pressed")
+
   	end    
 })
 
@@ -246,9 +246,6 @@ Universal:AddButton({
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
-
-
-
 
 Universal:AddButton({
 	Name = "TpPlayers",
