@@ -1,12 +1,5 @@
 local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/Orion-Library-Edited/main/Orion%20Edited"))()
-
-local Window = OrionLib:MakeWindow({Name = "SalvredHub | " .. executorName .. " | " .. gameName, HidePremium = false, SaveConfig = true, ConfigFolder = "OrionTest"})
-
--- Obtener el nombre del juego
-local gameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
-
--- Obtener el nombre del ejecutor
-local executorName = identifyexecutor() or "Unknown Executor"
+local Window = OrionLib:MakeWindow({Name = "SalvredHub - " .. identifyexecutor(), HidePremium = false, SaveConfig = true, ConfigFolder = "SalvredHubCode"})
 
 -- Función para verificar y notificar sobre la presencia de objetos en CoreGui
 local function checkAndNotify()
@@ -814,7 +807,7 @@ Callback = <function> - The function of the button.
 _G.CodexUiCustomSettings = {
 			CodexSpooferImage = 18965493710,
 			CodexSpooferText = "SalvredHub",
-			CodexSpooferPoweredBy = "Heyy Bro Lol",
+			CodexSpooferPoweredBy = "Heyy Bro",
 			FloatingIconColor=Color3.fromRGB(0, 0, 0),
 			MainUiBackground = Color3.fromRGB(0, 0, 0),
 			Icons=Color3.fromRGB(255, 255, 255),
