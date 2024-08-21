@@ -69,7 +69,7 @@ checkAndNotify()
 -- Agrega aquí el resto de tu script...
 
 local PlayerTab = Window:MakeTab({
- Name = "HolaGadi",
+ Name = "LocalGadiHack",
  Icon = "rbxassetid://12730597972",
  PremiumOnly = false
 })
@@ -211,29 +211,6 @@ local Universal = Window:MakeTab({
 	PremiumOnly = false
 })
 
-Universal:AddButton({
-	Name = "Who Make SalvredHub.",
-	Callback = function()OrionLib:MakeNotification({
-	Name = "Who",
-	Content = ""Salved" Is the creator from the script, "Salved" Es el creador del script",
-	Image = "rbxassetid://17366458568",
-	Time = 5
-})
-
---[[
-Title = <string> - The title of the notification.
-Content = <string> - The content of the notification.
-Image = <string> - The icon of the notification.
-Time = <number> - The duration of the notfication.
-]]
-
-  	end    
-})
-
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
 
 Universal:AddButton({
 	Name = "FlyMobileV1",
@@ -247,6 +224,7 @@ Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
 
+
 Universal:AddButton({
 	Name = "TpPlayers",
 	Callback = function()loadstring(game:HttpGet("https://pastebin.com/raw/JCWAp19A", true))()
@@ -258,7 +236,6 @@ Universal:AddButton({
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
-
 
 
 Universal:AddButton({
