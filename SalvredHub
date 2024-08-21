@@ -1,9 +1,9 @@
 local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/Orion-Library-Edited/main/Orion%20Edited"))()
-local Window = OrionLib:MakeWindow({Name = "SalvredHub - " .. gameName .. " | " .. identifyexecutor(), HidePremium = false, SaveConfig = true, ConfigFolder = "SalvredHubCode"})
+local Window = OrionLib:MakeWindow({Name = "SalvredHub - " .. GameName .. " | " .. ExecutorName, HidePremium = false, SaveConfig = true, ConfigFolder = "SalvredHubCode"})
 
-local gameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
+local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 
-local executorName = identifyexecutor() or "What Are You Using?"
+local ExecutorName = identifyexecutor() or "What Are You Using?"
 
 -- Función para verificar y notificar sobre la presencia de objetos en CoreGui
 local function checkAndNotify()
