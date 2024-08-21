@@ -212,20 +212,7 @@ local Universal = Window:MakeTab({
 })
 
 Universal:AddButton({
-	Name = "FlyMobileV1",
-	Callback = function()loadstring(game:HttpGet("https://pastebin.com/raw/XEhjj81x"))()
-      		print("SexoKat")
-  	end    
-})
-
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
-
-
-Universal:AddButton({
-	Name = "CreatorCredits.",
+        Name = "CreatorCredits.",
 	Callback = function()OrionLib:MakeNotification({
 	Name = "Creator",
 	Content = "Creator From Script: Salvred. Library Used: Orion Library",
@@ -247,6 +234,31 @@ Time = <number> - The duration of the notfication.
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
+
+Tab:AddButton({
+	Name = "Mobile Shiftlock",
+	Callback = function()
+      		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Mobile-Shiftlock-12348"))()
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Universal:AddButton({
+	Name = "FlyMobileV1",
+	Callback = function()loadstring(game:HttpGet("https://pastebin.com/raw/XEhjj81x"))()
+      		print("SexoKat")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
 
 
 Universal:AddButton({
