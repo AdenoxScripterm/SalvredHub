@@ -4,7 +4,7 @@ local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Aden
 local Window = OrionLib:MakeWindow({Name = "SalvredHub | " .. identifyexecutor() .. " | " .. GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "SalvredHubCode"})
 
 OrionLib:MakeNotification({
-	Name = "Updates 21/08/2024",
+	Name = "21/08/2024",
 	Content = "Added the name of your executor to the Hub name",
 	Image = "rbxassetid://4483345998",
 	Time = 5
