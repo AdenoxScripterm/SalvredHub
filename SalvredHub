@@ -235,7 +235,7 @@ Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
 
-Tab:AddButton({
+Universal:AddButton({
 	Name = "Mobile Shiftlock",
 	Callback = function()
       		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Mobile-Shiftlock-12348"))()
