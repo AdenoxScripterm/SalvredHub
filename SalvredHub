@@ -1,5 +1,5 @@
 local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/Orion-Library-Edited/main/Orion%20Edited"))()
-local Window = OrionLib:MakeWindow({Name = "SalvredHub - " .. identifyexecutor() | .. gameName, HidePremium = false, SaveConfig = true, ConfigFolder = "SalvredHubCode"})
+local Window = OrionLib:MakeWindow({Name = "SalvredHub - " .. gameName .. identifyexecutor() , HidePremium = false, SaveConfig = true, ConfigFolder = "SalvredHubCode"})
 
 local gameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 
