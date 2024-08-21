@@ -3,6 +3,13 @@ local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.Place
 local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/Orion-Library-Edited/main/Orion%20Edited"))()
 local Window = OrionLib:MakeWindow({Name = "SalvredHub | " .. identifyexecutor() .. " | " .. GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "SalvredHubCode"})
 
+OrionLib:MakeNotification({
+	Name = "Updates",
+	Content = "",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+
 -- Función para verificar y notificar sobre la presencia de objetos en CoreGui
 local function checkAndNotify()
     local CoreGui = game:GetService("CoreGui")
