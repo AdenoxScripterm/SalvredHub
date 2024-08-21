@@ -214,30 +214,19 @@ local Universal = Window:MakeTab({
 Universal:AddButton({
 	Name = "Who Created SalvredHub",
 	Callback = function()OrionLib:MakeNotification({
-	Name = "Creator:",
-	Content = "This hub is made by "Salved" Solo Me.",
-	Image = "rbxassetid://18965493710",
+	Name = "WHO?",
+	Content = "This hub is made by "Salved"",
+	Image = "rbxassetid://4483345998",
 	Time = 5
 })
-  	end    
-})
 
 --[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
+Title = <string> - The title of the notification.
+Content = <string> - The content of the notification.
+Image = <string> - The icon of the notification.
+Time = <number> - The duration of the notfication.
 ]]
 
-Universal:AddButton({
-	Name = "Mobile Shiftlock",
-	Callback = function()warn("MobileShiftlock")
-      		
-  	end    
-})
-
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
 
 Universal:AddButton({
 	Name = "FlyMobileV1",
