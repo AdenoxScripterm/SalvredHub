@@ -5,7 +5,7 @@ local Window = OrionLib:MakeWindow({Name = "SalvredHub | " .. identifyexecutor()
 
 OrionLib:MakeNotification({
 	Name = "21/08/2024",
-	Content = "Added the name of your executor to the Hub name",
+	Content = "Added the name of your executor to the Hub name and new button Mobile Shiftlock",
 	Image = "rbxassetid://4483345998",
 	Time = 5
 })
