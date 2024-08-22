@@ -211,6 +211,47 @@ local Universal = Window:MakeTab({
 	PremiumOnly = false
 })
 
+-- Crear un label para mostrar la fecha y hora
+local ClockLabel = Universal:AddLabel("")
+
+-- Función para formatear la hora y la fecha actual
+local function FormatTime()
+    local currentTime = os.date("*t")
+    local hour = currentTime.hour
+    local amPm = "AM"
+
+    if hour >= 12 then
+        amPm = "PM"
+        if hour > 12 then
+            hour = hour - 12
+        end
+    elseif hour == 0 then
+        hour = 12
+    end
+
+    local formattedTime = string.format("%02d:%02d:%02d %s", hour, currentTime.min, currentTime.sec, amPm)
+    local formattedDate = string.format("%02d/%02d/%04d", currentTime.day, currentTime.month, currentTime.year)
+
+    return formattedDate .. " " .. formattedTime
+end
+
+-- Función para actualizar el reloj
+local function UpdateClock()
+    while true do
+        local startTime = tick()
+        
+        -- Actualizar el texto del label con la fecha y hora formateada
+        ClockLabel:Set("Date & Time: " .. FormatTime())
+        
+        -- Esperar el tiempo restante hasta el siguiente segundo
+        local elapsedTime = tick() - startTime
+        wait(1 - elapsedTime)
+    end
+end
+
+-- Iniciar la actualización del reloj
+spawn(UpdateClock)
+
 Universal:AddButton({
 	Name = "Who Created SalvredHub?",
 	Callback = function()OrionLib:MakeNotification({
