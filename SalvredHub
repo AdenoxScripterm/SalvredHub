@@ -407,6 +407,8 @@ Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
 
+local Player = game.Players.LocalPlayer
+
 -- Crear sección para los controles de música
 Brookhaven:AddSection({
     Name = "Music Controls"
