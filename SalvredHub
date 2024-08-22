@@ -211,7 +211,8 @@ local Universal = Window:MakeTab({
 	PremiumOnly = false
 })
 
-local ClockSection = Universal:AddSection({Name = "Current Date and Time"})
+local ClockSection = Universal:AddSection({
+             Name = "Current Date and Time"})
 
 -- Add a label for displaying the clock
 local ClockLabel = ClockSection:AddLabel("Time: Loading...")
