@@ -409,7 +409,7 @@ Callback = <function> - The function of the button.
 
 -- Crear sección para los controles de música
 Brookhaven:AddSection({
-    Name = "Music Id"
+    Name = "Music Place Your Id"
 })
 
 -- Variable para almacenar el ID de música del carro
