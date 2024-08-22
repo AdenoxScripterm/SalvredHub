@@ -236,6 +236,18 @@ Callback = <function> - The function of the button.
 ]]
 
 Universal:AddButton({
+	Name = "Mobile Shiftlock",
+	Callback = function()loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Mobile-Shiftlock-12348"))()
+      		print("button pressed")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
+Universal:AddButton({
 	Name = "FlyMobileV1",
 	Callback = function()loadstring(game:HttpGet("https://pastebin.com/raw/XEhjj81x"))()
       		print("SexoKat")
