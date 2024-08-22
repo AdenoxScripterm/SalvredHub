@@ -416,7 +416,7 @@ Brookhaven:AddSection({
 local CarMusicID = ""
 
 -- Añadir un TextBox para el ID de la música del carro
-local CarTextBox = CarTab:AddTextbox({
+local CarTextBox = Brookhaven:AddTextbox({
     Name = "Car Music ID",
     Default = "",
     TextDisappear = false,
