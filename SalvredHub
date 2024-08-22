@@ -407,16 +407,16 @@ Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
 
--- Crear sección para los controles de música
+-- Crear sección para los controles de música del carro
 Brookhaven:AddSection({
-    Name = "Music Place Your Id"
+    Name = "Car Music Controls"
 })
 
 -- Variable para almacenar el ID de música del carro
 local CarMusicID = ""
 
 -- Añadir un TextBox para el ID de la música del carro
-local CarTextBox = Brookhaven:AddTextbox({
+local CarTextBox = CarTab:AddTextbox({
     Name = "Car Music ID",
     Default = "",
     TextDisappear = false,
@@ -461,6 +461,11 @@ Brookhaven:AddButton({
     end
 })
 
+-- Crear sección para los controles de música de la casa
+Brookhaven:AddSection({
+    Name = "House Music Controls"
+})
+
 -- Variable para almacenar el ID de música de la casa
 local HouseMusicID = ""
 
@@ -501,6 +506,7 @@ Brookhaven:AddButton({
         end
     end
 })
+
 
 local BloxFruit = Window:MakeTab({
 	Name = "BloxFruit",
