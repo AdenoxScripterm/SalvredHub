@@ -68,6 +68,79 @@ checkAndNotify()
 -- El resto del código sigue igual
 -- Agrega aquí el resto de tu script...
 
+local InfoTab = Window:MakeTab({
+	Name = "Information",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+--[[
+Name = <string> - The name of the tab.
+Icon = <string> - The icon of the tab.
+PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
+]]
+
+local ClockLabel = InfoTab:AddLabel("")
+
+-- Función para formatear la hora y la fecha actual
+local function FormatTime()
+    local currentTime = os.date("*t")
+    local hour = currentTime.hour
+    local amPm = "AM"
+
+    if hour >= 12 then
+        amPm = "PM"
+        if hour > 12 then
+            hour = hour - 12
+        end
+    elseif hour == 0 then
+        hour = 12
+    end
+
+    local formattedTime = string.format("%02d:%02d:%02d %s", hour, currentTime.min, currentTime.sec, amPm)
+    local formattedDate = string.format("%02d/%02d/%04d", currentTime.day, currentTime.month, currentTime.year)
+
+    return formattedDate .. " " .. formattedTime
+end
+
+-- Función para actualizar el reloj
+local function UpdateClock()
+    while true do
+        local startTime = tick()
+        
+        -- Actualizar el texto del label con la fecha y hora formateada
+        ClockLabel:Set("Date & Time: " .. FormatTime())
+        
+        -- Esperar el tiempo restante hasta el siguiente segundo
+        local elapsedTime = tick() - startTime
+        wait(1 - elapsedTime)
+    end
+end
+
+-- Iniciar la actualización del reloj
+spawn(UpdateClock)
+
+-- Crear labels para mostrar los días, meses y años en Roblox
+local DaysInRobloxLabel = InfoTab:AddLabel("Days on Roblox: Loading...")
+local MonthsInRobloxLabel = InfoTab:AddLabel("Months on Roblox: Loading...")
+local YearsInRobloxLabel = InfoTab:AddLabel("Years on Roblox: Loading...")
+
+-- Función para calcular los días, meses y años en Roblox
+local function CalculateTimeOnRoblox()
+    local player = game.Players.LocalPlayer
+    local daysInRoblox = player.AccountAge
+    local monthsInRoblox = math.floor(daysInRoblox / 30)
+    local yearsInRoblox = math.floor(daysInRoblox / 365)
+
+    -- Actualizar los labels
+    DaysInRobloxLabel:Set("Days on Roblox: " .. daysInRoblox .. " days")
+    MonthsInRobloxLabel:Set("Months on Roblox: " .. monthsInRoblox .. " months")
+    YearsInRobloxLabel:Set("Years on Roblox: " .. yearsInRoblox .. " years")
+end
+
+-- Llamar a la función para calcular el tiempo en Roblox
+CalculateTimeOnRoblox()
+
 local PlayerTab = Window:MakeTab({
  Name = "LocalGadiHack",
  Icon = "rbxassetid://12730597972",
@@ -210,47 +283,6 @@ local Universal = Window:MakeTab({
 	Icon = "rbxassetid://11558559086",
 	PremiumOnly = false
 })
-
--- Crear un label para mostrar la fecha y hora
-local ClockLabel = Universal:AddLabel("")
-
--- Función para formatear la hora y la fecha actual
-local function FormatTime()
-    local currentTime = os.date("*t")
-    local hour = currentTime.hour
-    local amPm = "AM"
-
-    if hour >= 12 then
-        amPm = "PM"
-        if hour > 12 then
-            hour = hour - 12
-        end
-    elseif hour == 0 then
-        hour = 12
-    end
-
-    local formattedTime = string.format("%02d:%02d:%02d %s", hour, currentTime.min, currentTime.sec, amPm)
-    local formattedDate = string.format("%02d/%02d/%04d", currentTime.day, currentTime.month, currentTime.year)
-
-    return formattedDate .. " " .. formattedTime
-end
-
--- Función para actualizar el reloj
-local function UpdateClock()
-    while true do
-        local startTime = tick()
-        
-        -- Actualizar el texto del label con la fecha y hora formateada
-        ClockLabel:Set("Date & Time: " .. FormatTime())
-        
-        -- Esperar el tiempo restante hasta el siguiente segundo
-        local elapsedTime = tick() - startTime
-        wait(1 - elapsedTime)
-    end
-end
-
--- Iniciar la actualización del reloj
-spawn(UpdateClock)
 
 Universal:AddButton({
 	Name = "Who Created SalvredHub?",
