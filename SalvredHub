@@ -938,7 +938,8 @@ PrisonLife:AddToggle({
 
 PrisonLife:AddButton({
 	Name = "Bring Car",
-	Callback = function()local OldPos = game:GetService("Players").LocalPlayer.Character:GetPrimaryPartCFrame()
+	Callback = function()
+      		local OldPos = game:GetService("Players").LocalPlayer.Character:GetPrimaryPartCFrame()
 			game:GetService("Players").LocalPlayer.Character:SetPrimaryPartCFrame(CFrame.new(-910, 95, 2157))
 			wait()
 			local car = nil
@@ -965,10 +966,7 @@ PrisonLife:AddButton({
 					Done = true
 				end
 			until Done
-		end)
-	end)
-      		print("button pressed")
-  	end    
+		end    
 })
 
 --[[
