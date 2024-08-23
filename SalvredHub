@@ -4,9 +4,9 @@ local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Aden
 local Window = OrionLib:MakeWindow({Name = "SalvredHub | " .. identifyexecutor() .. " | " .. GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "SalvredHubCode"})
 
 OrionLib:MakeNotification({
-	Name = "21/08/2024",
-	Content = "Added the name of your executor to the Hub name and new button Mobile Shiftlock",
-	Image = "rbxassetid://4483345998",
+	Name = "23/08/2024",
+	Content = "Added New Toggle Infinite Jump And Kill Aura in Prison Life Tab",
+	Image = "rbxassetid://17366458568",
 	Time = 5
 })
 
@@ -150,6 +150,23 @@ local PlayerTab = Window:MakeTab({
 local Section = PlayerTab:AddSection({
  Name = "You"
 })
+
+-- Toggle para Infinite Jump
+local InfiniteJumpEnabled = false
+
+PlayerTab:AddToggle({
+    Name = "Infinite Jump",
+    Default = false,
+    Callback = function(Value)
+        InfiniteJumpEnabled = Value
+    end
+})
+
+game:GetService("UserInputService").JumpRequest:connect(function()
+    if InfiniteJumpEnabled then
+        game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass('Humanoid'):ChangeState("Jumping")
+    end
+end)
 
 PlayerTab:AddSlider({
  Name = "Walkspeed",
@@ -450,6 +467,42 @@ Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
 
+-- Botón para obtener la herramienta de teletransporte
+Universal:AddButton({
+    Name = "Get Teleport Tool",
+    Callback = function()
+        -- Verificar si la herramienta ya existe en el backpack o en el character
+        local player = game.Players.LocalPlayer
+        local backpack = player.Backpack
+        local character = player.Character
+
+        if not backpack:FindFirstChild("Teleport Tool") and not character:FindFirstChild("Teleport Tool") then
+            local tool = Instance.new("Tool")
+            tool.Name = "Teleport Tool"
+            tool.RequiresHandle = false
+            
+            -- Función de teletransporte
+            local function teleport()
+                local mouse = player:GetMouse()
+                local position = mouse.Hit.p + Vector3.new(0, 3, 0) -- Eleva 3 unidades por encima del punto de clic
+                player.Character:SetPrimaryPartCFrame(CFrame.new(position))
+            end
+
+            tool.Activated:Connect(teleport)
+            tool.Parent = backpack
+
+            -- Mantener la herramienta tras la muerte
+            player.CharacterAdded:Connect(function(char)
+                -- Asegurarse de que la herramienta no se duplica y se restaura
+                if not player.Backpack:FindFirstChild("Teleport Tool") and not char:FindFirstChild("Teleport Tool") then
+                    local newTool = tool:Clone()
+                    newTool.Parent = player.Backpack
+                    newTool.Activated:Connect(teleport)  -- Reasignar la función de teletransporte
+                end
+            end)
+        end
+    end
+})
 
 local Brookhaven = Window:MakeTab({
 	Name = "Brookhaven",
@@ -816,6 +869,72 @@ Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
 
+local SectionTeamPL = PrisonLife:AddSection({
+	Name = "Team"
+})
+
+--[[
+Name = <string> - The name of the section.
+]]
+
+-- Botón para cambiar al equipo "Inmate"
+PrisonLife:AddButton({
+    Name = "Inmate",
+    Callback = function()
+        local args = {
+            [1] = "Bright orange"
+        }
+        workspace.Remote.TeamEvent:FireServer(unpack(args))
+    end
+})
+
+-- Botón para cambiar al equipo "Guard"
+PrisonLife:AddButton({
+    Name = "Guard",
+    Callback = function()
+        local args = {
+            [1] = "Bright blue"
+        }
+        workspace.Remote.TeamEvent:FireServer(unpack(args))
+    end
+})
+
+-- Botón para teletransportarse a las coordenadas de criminal
+PrisonLife:AddButton({
+    Name = "Criminal",
+    Callback = function()
+        local player = game.Players.LocalPlayer
+        local criminalPosition = Vector3.new(-976, 109, 2045)
+        player.Character:SetPrimaryPartCFrame(CFrame.new(criminalPosition))
+    end
+})
+
+local SectionStuff = Tab:AddSection({
+	Name = "Stuff"
+})
+
+--[[
+Name = <string> - The name of the section.
+]]
+
+-- Toggle para Auto Melee
+local AutoMeleeEnabled = false
+
+PrisonLife:AddToggle({
+    Name = "KillAura",
+    Default = false,
+    Callback = function(Value)
+        AutoMeleeEnabled = Value
+        while AutoMeleeEnabled and wait() do
+            for i, e in pairs(game.Players:GetChildren()) do
+                if e ~= game.Players.LocalPlayer then
+                    local meleeEvent = game:GetService("ReplicatedStorage").meleeEvent
+                    meleeEvent:FireServer(e)
+                end
+            end
+        end
+    end
+})
 
 local LegendsOfSpeed = Window:MakeTab({
 	Name = "LegendsOfSpeed",
