@@ -572,7 +572,7 @@ local Player = game.Players.LocalPlayer
 
 -- Crear sección para los controles de música
 Brookhaven:AddSection({
-    Name = "Music Controls"
+    Name = "Music Controls (Requires GamePass Music)"
 })
 
 -- Variable para almacenar el ID de música del carro
