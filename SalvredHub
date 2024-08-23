@@ -5,7 +5,7 @@ local Window = OrionLib:MakeWindow({Name = "SalvredHub | " .. identifyexecutor()
 
 OrionLib:MakeNotification({
 	Name = "23/08/2024",
-	Content = "Added New Toggle Infinite Jump And Kill Aura in Prison Life Tab",
+	Content = "Added New Toggle Infinite Jump in LocalPlayer Tab, And Kill Aura in Prison Life Tab",
 	Image = "rbxassetid://17366458568",
 	Time = 5
 })
