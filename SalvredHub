@@ -190,6 +190,41 @@ PlayerTab:AddSlider({
     end    
 })
 
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+
+-- Variable para almacenar el HipHeight original
+local originalHipHeight = humanoid.HipHeight
+
+-- Función para ajustar el HipHeight
+local function setHipHeight(height)
+	humanoid.HipHeight = originalHipHeight + height
+end
+
+-- Crear slider para ajustar la altura de flotación (HipHeight)
+PlayerTab:AddSlider({
+	Name = "Hip Height",
+	Min = 0,
+	Max = 100,
+	Default = 0,
+	Color = Color3.fromRGB(255, 255, 255),
+	Increment = 1,
+	ValueName = "Hip Height",
+	Callback = function(value)
+		setHipHeight(value)
+	end    
+})
+
+-- Asegurarse de que el HipHeight se restablezca al reaparecer
+player.CharacterAdded:Connect(function(char)
+	character = char
+	humanoid = character:WaitForChild("Humanoid")
+
+	-- Restablecer el HipHeight cuando el personaje reaparece
+	setHipHeight(0)
+end)
+
 PlayerTab:AddSlider({
     Name = "Camera Fov",
     Min = 70,
