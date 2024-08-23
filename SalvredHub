@@ -909,7 +909,7 @@ PrisonLife:AddButton({
     end
 })
 
-local SectionStuff = Tab:AddSection({
+local SectionStuff = PrisonLife:AddSection({
 	Name = "Stuff"
 })
 
