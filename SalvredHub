@@ -599,7 +599,7 @@ end
 
     -- Dropdown para seleccionar jugadores
     local playerDropDown = Universal:AddDropdown({
-        Name = "Seleccionar Jugador",
+        Name = "Select Player To Black Hole",
         Default = "None",
         Options = {},
         Callback = function(selectedName)
@@ -619,7 +619,7 @@ end
 
     -- Toggle para Black Hole
     Universal:AddToggle({
-        Name = "Toggle Black Hole",
+        Name = "Toggle Black Hole Selected Player",
         Default = false,
         Callback = function(value)
             toggleBlackHole(value)
