@@ -600,7 +600,7 @@ end
 
     -- Dropdown para seleccionar jugadores
     local playerDropdown = Universal:AddDropdown({
-        Name = "Select Player To Black Hole",
+        Name = "Select Player To Black Hole xd",
         Default = "None",
         Options = {},
         Callback = function(selectedName)
