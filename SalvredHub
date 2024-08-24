@@ -484,11 +484,6 @@ Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
 
-local Players = game:GetService("Players")
-local RunService = game:GetService("RunService")
-local Workspace = game:GetService("Workspace")
-local LocalPlayer = Players.LocalPlayer
-
 local selectedPlayer = nil
 local blackHoleActive = false
 
