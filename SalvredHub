@@ -589,24 +589,37 @@ local function toggleBlackHole(value)
     end
 end
 
-    -- Dropdown para seleccionar jugadores
+local function updateDropDownOptions(DropDown)
     local playerNames = {}
     for _, player in pairs(Players:GetPlayers()) do
         table.insert(playerNames, player.Name)
     end
+    DropDown:UpdateOptions(playerNames)
+end
 
-    Universal:AddDropdown({
+    -- Dropdown para seleccionar jugadores
+    local playerDropDown = Universal:AddDropdown({
         Name = "Seleccionar Jugador",
-        Default = playerNames[1] or "None",
-        Options = playerNames,
+        Default = "None",
+        Options = {},
         Callback = function(selectedName)
             selectedPlayer = Players:FindFirstChild(selectedName)
         end    
     })
 
+    updateDropDownOptions(playerDropDown)
+
+    Players.PlayerAdded:Connect(function()
+        updateDropDownOptions(playerDropDown)
+    end)
+
+    Players.PlayerRemoving:Connect(function()
+        updateDropDownOptions(playerDropDown)
+    end)
+
     -- Toggle para Black Hole
     Universal:AddToggle({
-        Name = "Toggle Black Hole Selected Player",
+        Name = "Toggle Black Hole",
         Default = false,
         Callback = function(value)
             toggleBlackHole(value)
