@@ -484,7 +484,150 @@ Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
 
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local Workspace = game:GetService("Workspace")
+local LocalPlayer = Players.LocalPlayer
 
+local selectedPlayer = nil
+local blackHoleActive = false
+
+local character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+
+local Folder = Instance.new("Folder", Workspace)
+local Part = Instance.new("Part", Folder)
+local Attachment1 = Instance.new("Attachment", Part)
+Part.Anchored = true
+Part.CanCollide = false
+Part.Transparency = 1
+
+if not getgenv().Network then
+    getgenv().Network = {
+        BaseParts = {},
+        Velocity = Vector3.new(14.46262424, 14.46262424, 14.46262424)
+    }
+
+    Network.RetainPart = function(Part)
+        if typeof(Part) == "Instance" and Part:IsA("BasePart") and Part:IsDescendantOf(Workspace) then
+            table.insert(Network.BaseParts, Part)
+            Part.CustomPhysicalProperties = PhysicalProperties.new(0, 0, 0, 0, 0)
+            Part.CanCollide = false
+        end
+    end
+
+    local function EnablePartControl()
+        LocalPlayer.ReplicationFocus = Workspace
+        RunService.Heartbeat:Connect(function()
+            sethiddenproperty(LocalPlayer, "SimulationRadius", math.huge)
+            for _, Part in pairs(Network.BaseParts) do
+                if Part:IsDescendantOf(Workspace) then
+                    Part.Velocity = Network.Velocity
+                end
+            end
+        end)
+    end
+
+    EnablePartControl()
+end
+
+local function ForcePart(v)
+    if v:IsA("Part") and not v.Anchored and not v.Parent:FindFirstChild("Humanoid") and not v.Parent:FindFirstChild("Head") and v.Name ~= "Handle" then
+        for _, x in next, v:GetChildren() do
+            if x:IsA("BodyAngularVelocity") or x:IsA("BodyForce") or x:IsA("BodyGyro") or x:IsA("BodyPosition") or x:IsA("BodyThrust") or x:IsA("BodyVelocity") or x:IsA("RocketPropulsion") then
+                x:Destroy()
+            end
+        end
+        if v:FindFirstChild("Attachment") then
+            v:FindFirstChild("Attachment"):Destroy()
+        end
+        if v:FindFirstChild("AlignPosition") then
+            v:FindFirstChild("AlignPosition"):Destroy()
+        end
+        if v:FindFirstChild("Torque") then
+            v:FindFirstChild("Torque"):Destroy()
+        end
+        v.CanCollide = false
+        local Torque = Instance.new("Torque", v)
+        Torque.Torque = Vector3.new(100000, 100000, 100000)
+        local AlignPosition = Instance.new("AlignPosition", v)
+        local Attachment2 = Instance.new("Attachment", v)
+        Torque.Attachment0 = Attachment2
+        AlignPosition.MaxForce = 9999999999999999
+        AlignPosition.MaxVelocity = math.huge
+        AlignPosition.Responsiveness = 200
+        AlignPosition.Attachment0 = Attachment2
+        AlignPosition.Attachment1 = Attachment1
+    end
+end
+
+local function toggleBlackHole(value)
+    blackHoleActive = value
+    if blackHoleActive then
+        for _, v in next, Workspace:GetDescendants() do
+            ForcePart(v)
+        end
+
+        Workspace.DescendantAdded:Connect(function(v)
+            if blackHoleActive then
+                ForcePart(v)
+            end
+        end)
+
+        spawn(function()
+            while blackHoleActive and RunService.RenderStepped:Wait() do
+                if selectedPlayer then
+                    local targetHRP = selectedPlayer.Character and selectedPlayer.Character:FindFirstChild("HumanoidRootPart")
+                    if targetHRP then
+                        Attachment1.WorldCFrame = targetHRP.CFrame
+                    end
+                else
+                    Attachment1.WorldCFrame = humanoidRootPart.CFrame
+                end
+            end
+        end)
+    end
+end
+
+local function UpdateDropDownOptions(DropDown)
+    local playerNames = {}
+    for _, player in pairs(Players:GetPlayers()) do
+        table.insert(playerNames, player.Name)
+    end
+    DropDown:Refresh(playerNames, true)  -- Actualiza la lista y selecciona el valor por defecto (el primero)
+end
+
+
+-- Dropdown para seleccionar jugadores
+local PlayerDropDown = Universal:AddDropdown({
+    Name = "Select Player To Black Hole",
+    Default = "None",
+    Options = {},  -- Las opciones se actualizarán en tiempo real
+    Callback = function(selectedName)
+        selectedPlayer = Players:FindFirstChild(selectedName)
+    end    
+})
+
+-- Actualizar la lista al iniciar
+UpdateDropDownOptions(PlayerDropDown)
+
+-- Conectar la actualización de la lista cuando un jugador se une o se va
+Players.PlayerAdded:Connect(function()
+    UpdateDropDownOptions(PlayerDropDown)
+end)
+
+Players.PlayerRemoving:Connect(function()
+    UpdateDropDownOptions(playerDropDown)
+end)
+
+-- Toggle para Black Hole
+Universal:AddToggle({
+    Name = "Toggle Black Hole",
+    Default = false,
+    Callback = function(value)
+        toggleBlackHole(value)
+    end    
+})
 
 Universal:AddButton({
 	Name = "Mobile Shiftlock",
