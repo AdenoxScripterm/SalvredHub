@@ -599,8 +599,8 @@ end
 
 
     -- Dropdown para seleccionar jugadores
-    local playerDropdown = Universal:AddDropdown({
-        Name = "Select Player To Black Hole xd",
+    local playerDropdown = Tab:AddDropdown({
+        Name = "Select Player",
         Default = "None",
         Options = {},
         Callback = function(selectedName)
@@ -626,8 +626,6 @@ end
             toggleBlackHole(value)
         end    
     })
-
-    
 
 Universal:AddButton({
 	Name = "Mobile Shiftlock",
