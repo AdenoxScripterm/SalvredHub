@@ -1,3 +1,30 @@
+local UserTracking = require(game.ServerScriptService:WaitForChild("UserTracking"))
+
+local player = game.Players.LocalPlayer
+local myUserId = 3673918498 -- Tu UserId
+
+-- Registrar el usuario que está ejecutando el script
+UserTracking:RegisterUser(player.UserId, player.Name)
+
+
+-- Crear el Label para mostrar la lista de usuarios
+local label = window:CreateLabel("Usuarios que han usado el script:")
+
+if player.UserId == myUserId then
+    -- Mostrar los usuarios que han usado el script
+    local usedUsers = UserTracking:GetUsedUsers()
+    local userList = "Usuarios que han usado el script:\n"
+
+    for userId, username in pairs(usedUsers) do
+        userList = userList .. username .. " (UserId: " .. userId .. ")\n"
+    end
+
+    label.Text = userList
+else
+    -- Configurar y mostrar tu GUI normalmente
+    label.Text = "Bienvenido, " .. player.Name
+end
+
 local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 
 local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/Orion-Library-Edited/main/Orion%20Edited"))()
