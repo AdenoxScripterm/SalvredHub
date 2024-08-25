@@ -1,3 +1,9 @@
+local player = game.Players.LocalPlayer
+local blockedUserId = 4828251596 -- Reemplaza este número con el UserId del jugador que deseas bloquear
+
+if player.UserId == blockedUserId then
+    OrionLib:Destroy() -- Destruye la GUI si el UserId coincide
+
 local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 
 local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/Orion-Library-Edited/main/Orion%20Edited"))()
