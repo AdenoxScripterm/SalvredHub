@@ -7,8 +7,8 @@ local myUserId = 3673918498 -- Tu UserId
 UserTracking:RegisterUser(player.UserId, player.Name)
 
 
--- Crear el Label para mostrar la lista de usuarios
-local label = window:CreateLabel("Usuarios que han usado el script:")
+-- Crear un Label en la pestaña
+local label = InfoTab:AddLabel("Cargando usuarios...")
 
 if player.UserId == myUserId then
     -- Mostrar los usuarios que han usado el script
@@ -19,6 +19,7 @@ if player.UserId == myUserId then
         userList = userList .. username .. " (UserId: " .. userId .. ")\n"
     end
 
+    -- Actualizar el texto del Label
     label.Text = userList
 else
     -- Configurar y mostrar tu GUI normalmente
