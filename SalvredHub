@@ -32,8 +32,8 @@ local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Aden
 local Window = OrionLib:MakeWindow({Name = "SalvredHub | " .. identifyexecutor() .. " | " .. GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "SalvredHubCode"})
 
 OrionLib:MakeNotification({
-	Name = "24/08/2024",
-	Content = "Check",
+	Name = "25/08/2024",
+	Content = "Fixed Script Dont Loading, Sorry",
 	Image = "rbxassetid://17366458568",
 	Time = 5
 })
