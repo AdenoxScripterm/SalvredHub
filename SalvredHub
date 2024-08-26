@@ -1355,6 +1355,26 @@ Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
 
+local Section = Mm2:AddSection({
+	Name = "Wow"
+})
+
+--[[
+Name = <string> - The name of the section.
+]]
+
+Mm2:AddButton({
+	Name = "SYH/Symphony Hub",
+	Callback = function()
+      		print("button pressed")
+  	end    
+})
+
+--[[
+Name = <string> - The name of the button.
+Callback = <function> - The function of the button.
+]]
+
 --[[
 	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
 ]]
