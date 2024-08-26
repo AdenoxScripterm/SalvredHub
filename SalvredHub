@@ -1,5 +1,5 @@
 local UserTracking = require(game.ServerScriptService:WaitForChild("UserTracking"))
-sk
+
 local player = game.Players.LocalPlayer
 local myUserId = 3673918498 -- Tu UserId
 
