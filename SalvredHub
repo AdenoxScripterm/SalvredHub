@@ -4,8 +4,8 @@ local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Aden
 local Window = OrionLib:MakeWindow({Name = "SalvredHub | " .. identifyexecutor() .. " | " .. GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "SalvredHubCode"})
 
 OrionLib:MakeNotification({
-	Name = "25/08/2024",
-	Content = "Fixed Script Dont Loading, Sorry",
+	Name = "26/08/2024",
+	Content = "New Script In The Tab Mm2 (Murder Mystery 2) YARHM",
 	Image = "rbxassetid://17366458568",
 	Time = 5
 })
@@ -1364,8 +1364,8 @@ Name = <string> - The name of the section.
 ]]
 
 Mm2:AddButton({
-	Name = "SYH/Symphony Hub",
-	Callback = function()
+	Name = "YARHM",
+	Callback = function()loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-YARHM-12403"))()
       		print("button pressed")
   	end    
 })
