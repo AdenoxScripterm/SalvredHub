@@ -1,3 +1,46 @@
+local player = game.Players.LocalPlayer
+
+local function createBillboardGui(character)
+    local head = character:WaitForChild("Head")
+
+    local billboardGui = Instance.new("BillboardGui")
+    billboardGui.Parent = head
+    billboardGui.Adornee = head
+    billboardGui.Size = UDim2.new(4, 0, 1, 0) -- Ajusta el tamaño del BillboardGui
+    billboardGui.StudsOffset = Vector3.new(0, 2, 0) -- Ajusta la posición del texto sobre la cabeza
+    billboardGui.AlwaysOnTop = true
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Parent = billboardGui
+    textLabel.Size = UDim2.new(1, 0, 1, 0)
+    textLabel.BackgroundTransparency = 1
+    textLabel.Text = player.DisplayName -- Muestra el DisplayName del jugador
+    textLabel.TextStrokeTransparency = 0 -- Agrega un contorno al texto
+    textLabel.TextScaled = true -- Escala el texto para que se ajuste al tamaño del TextLabel
+    textLabel.Font = Enum.Font.SourceSansBold
+
+    -- Función para cambiar los colores RGB
+    local function updateColor()
+        while true do
+            for i = 0, 1, 0.01 do
+                textLabel.TextColor3 = Color3.fromHSV(i, 1, 1) -- Cambia el color usando el espectro HSV
+                wait(0.05) -- Ajusta la velocidad de cambio de color
+            end
+        end
+    end
+
+    -- Ejecutar la función en un hilo separado para que el color cambie continuamente
+    spawn(updateColor)
+end
+
+-- Crear el BillboardGui cuando el personaje aparezca
+player.CharacterAdded:Connect(createBillboardGui)
+
+-- Si el personaje ya está cargado, crear el BillboardGui inmediatamente
+if player.Character then
+    createBillboardGui(player.Character)
+end
+
 local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 
 local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/Orion-Library-Edited/main/Orion%20Edited"))()
