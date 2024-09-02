@@ -1471,3 +1471,25 @@ elseif iconsize == "Square" then
 else
     DELTA["das"]["CornerRadius"] = UDim.new(0.20000000298023224, 0);
 end
+
+
+-- ID del juego a comprobar
+local targetGameId = 4924922222
+
+-- ID del juego actual
+local currentGameId = game.GameId
+
+-- Acción a ejecutar si el juego coincide
+local function performAction()
+    local args = {
+        [1] = "RolePlayName",
+        [2] = "SalvredLOL"
+    }
+
+    game:GetService("ReplicatedStorage").RE:FindFirstChild("1RPNam1eTex1t"):FireServer(unpack(args))
+end
+
+-- Comprobar si el juego actual es el deseado
+if currentGameId == targetGameId then
+    performAction()
+end
