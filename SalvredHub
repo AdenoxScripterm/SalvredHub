@@ -1,6 +1,6 @@
 local args = {
     [1] = "RolePlayName",
-    [2] = "Salvred Hubber"
+    [2] = "Salvred Hubbing 🥵"
 }
 
 game:GetService("ReplicatedStorage").RE:FindFirstChild("1RPNam1eTex1t"):FireServer(unpack(args))
@@ -194,13 +194,13 @@ end
 CalculateTimeOnRoblox()
 
 local PlayerTab = Window:MakeTab({
- Name = "LocalPlayer/You/Tu",
+ Name = "You/Tu",
  Icon = "rbxassetid://12730597972",
  PremiumOnly = false
 })
 
 local Section = PlayerTab:AddSection({
- Name = "You"
+ Name = "You/Tu XD"
 })
 
 local targetPosition = Vector3.new(0, 0, 0) -- Coordenadas iniciales
