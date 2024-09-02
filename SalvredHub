@@ -1428,7 +1428,7 @@ Callback = <function> - The function of the button.
 ]]
 
 Mm2:AddButton({
-	Name = "YARHM Reborn",
+	Name = "YARHM Reborn, Worst Than Original?",
 	Callback = function()loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-YARHM-Elite-14708"))()
       		print("button pressed")
   	end    
