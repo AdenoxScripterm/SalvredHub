@@ -1,7 +1,3 @@
-loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-Read-This-Please-17832"))()
-
-wait(3)
-
 local player = game.Players.LocalPlayer
 
 local function createBillboardGui(character)
