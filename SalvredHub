@@ -1,6 +1,6 @@
 local args = {
     [1] = "RolePlayName",
-    [2] = "Salvred Hubbing"
+    [2] = "Salvred Hubber"
 }
 
 game:GetService("ReplicatedStorage").RE:FindFirstChild("1RPNam1eTex1t"):FireServer(unpack(args))
@@ -194,7 +194,7 @@ end
 CalculateTimeOnRoblox()
 
 local PlayerTab = Window:MakeTab({
- Name = "LocalGadiHack",
+ Name = "LocalPlayer/You/Tu",
  Icon = "rbxassetid://12730597972",
  PremiumOnly = false
 })
