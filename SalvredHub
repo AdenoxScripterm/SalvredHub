@@ -1,3 +1,5 @@
+setclipboard("https://scriptblox.com/script/Universal-Script-Read-This-Please-17832")
+
 local player = game.Players.LocalPlayer
 
 local function createBillboardGui(character)
@@ -47,10 +49,10 @@ local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/Aden
 local Window = OrionLib:MakeWindow({Name = "SalvredHub | " .. identifyexecutor() .. " | " .. GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "SalvredHubCode"})
 
 OrionLib:MakeNotification({
-	Name = "27/08/2024",
-	Content = "The Script Is Dont Working in Codex I Have Codex And i tested it. Version From Code  i Tested It: 2.639",
+	Name = "1/09/2024",
+	Content = "Hello, look, go to the clipboard and you will see that you have a link. You will put that link in Google, it will take you to scriptblox, read what the description says so that it works in Codex.",
 	Image = "rbxassetid://17366458568",
-	Time = 5
+	Time = 60
 })
 
 -- Función para verificar y notificar sobre la presencia de objetos en CoreGui
