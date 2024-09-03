@@ -998,34 +998,26 @@ local ScooterTextBox = Brookhaven:AddTextbox({
 Brookhaven:AddButton({
     Name = "Play Scooter Music",
     Callback = function()
-        -- Verificar que el jugador esté sentado en un scooter
-        local character = Player.Character or Player.CharacterAdded:Wait()
-        local humanoid = character:FindFirstChild("Humanoid")
-        local seat = humanoid and humanoid.SeatPart
-
-        if seat and seat:IsA("VehicleSeat") then
-            local musicId = ScooterMusicID
-            if tonumber(musicId) then
-                -- Debug: Imprimir el ID de música del scooter para confirmar
-                print("Playing scooter music with ID: " .. musicId)
-                
-                -- Reproducir la música del scooter
-                local musicArgs = {
-                    [1] = "PickingScooterMusicText",
-                    [2] = musicId
-                }
-                
-                local remote = game:GetService("ReplicatedStorage"):FindFirstChild("RE") and game:GetService("ReplicatedStorage").RE:FindFirstChild("1NoMoto1rVehicle1s")
-                if remote then
-                    remote:FireServer(unpack(musicArgs))
-                else
-                    warn("Remote not found or not correctly named.")
-                end
+        -- Reproducir la música del scooter
+        local musicId = ScooterMusicID
+        if tonumber(musicId) then
+            -- Debug: Imprimir el ID de música del scooter para confirmar
+            print("Playing scooter music with ID: " .. musicId)
+            
+            -- Reproducir la música del scooter
+            local musicArgs = {
+                [1] = "PickingScooterMusicText",
+                [2] = musicId
+            }
+            
+            local remote = game:GetService("ReplicatedStorage"):FindFirstChild("RE") and game:GetService("ReplicatedStorage").RE:FindFirstChild("1NoMoto1rVehicle1s")
+            if remote then
+                remote:FireServer(unpack(musicArgs))
             else
-                warn("Please enter a valid Scooter Music ID")
+                warn("Remote not found or not correctly named.")
             end
         else
-            warn("You must be sitting in a scooter to play scooter music")
+            warn("Please enter a valid Scooter Music ID")
         end
     end
 })
