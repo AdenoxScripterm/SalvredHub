@@ -6,7 +6,6 @@ for x, y in pairs(game:GetDescendants()) do
     end
 end
 
-
 setclipboard("https://scriptblox.com/script/Universal-Script-Read-This-Please-17832")
 
 local player = game.Players.LocalPlayer
