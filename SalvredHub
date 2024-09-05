@@ -123,7 +123,7 @@ checkAndNotify()
 
 local InfoTab = Window:MakeTab({
 	Name = "Information",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://17140853847",
 	PremiumOnly = false
 })
 
