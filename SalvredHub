@@ -1510,7 +1510,7 @@ NDS:AddToggle({
             
             -- Conectamos el evento para mover el HumanoidRootPart
             event = game:GetService("RunService").RenderStepped:Connect(function()
-                humanoidRootPart.CFrame = CFrame.new(-264, 195, 288)
+                humanoidRootPart.CFrame = CFrame.new(-277, 182, 343)
             end)
         elseif event and humanoidRootPart then
             -- Desconectamos el evento cuando el toggle está desactivado
