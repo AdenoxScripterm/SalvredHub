@@ -1478,6 +1478,92 @@ Mm2:AddButton({
   	end    
 })
 
+local StuffMm2 = Mm2:AddSection({
+	Name = "Stuff"
+})
+
+-- Variables
+local Players = game:GetService("Players")
+local Workspace = game:GetService("Workspace")
+local player = Players.LocalPlayer
+
+-- Función para teletransportar al jugador al GunDrop
+local function teleportToGunDrop()
+    local character = player.Character or player.CharacterAdded:Wait()
+    local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+    local originalPosition = humanoidRootPart.CFrame  -- Guardar la posición original
+
+    local normalFolder = Workspace:FindFirstChild("Normal")
+    if normalFolder then
+        local gunDrop = normalFolder:FindFirstChild("GunDrop")
+        if gunDrop then
+            -- Teletransportarse al GunDrop
+            humanoidRootPart.CFrame = gunDrop.CFrame
+            
+            -- Esperar 0.5 segundos antes de regresar
+            wait(0.5)
+
+            -- Regresar a la posición original
+            humanoidRootPart.CFrame = originalPosition
+        else
+            warn("GunDrop no encontrado en Workspace.Normal.")
+        end
+    else
+        warn("Normal no encontrado en Workspace.")
+    end
+end
+
+-- Función para añadir el texto sobre el GunDrop
+local function addGunDropText(gunDrop)
+    if gunDrop:FindFirstChild("GunDropText") then return end  -- Evitar duplicados
+
+    local billboardGui = Instance.new("BillboardGui")
+    billboardGui.Name = "GunDropText"
+    billboardGui.Adornee = gunDrop
+    billboardGui.Size = UDim2.new(0, 100, 0, 50)
+    billboardGui.StudsOffset = Vector3.new(0, 2, 0)
+    billboardGui.AlwaysOnTop = true
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Size = UDim2.new(1, 0, 1, 0)
+    textLabel.BackgroundTransparency = 1
+    textLabel.Text = "Gun Is Here"
+    textLabel.TextColor3 = Color3.fromRGB(255, 0, 0)
+    textLabel.TextScaled = true
+    textLabel.Font = Enum.Font.SourceSansBold
+    textLabel.Parent = billboardGui
+
+    billboardGui.Parent = gunDrop
+end
+
+Mm2:AddButton({
+    Name = "Teleport to Gun",
+    Callback = function()teleportToGunDrop
+})
+
+-- Monitorear la existencia del GunDrop y añadir el texto
+local function monitorGunDrop()
+    while true do
+        local normalFolder = Workspace:FindFirstChild("Normal")
+        if normalFolder then
+            local gunDrop = normalFolder:FindFirstChild("GunDrop")
+            if gunDrop then
+                addGunDropText(gunDrop)
+            end
+        end
+        wait(1)  -- Revisar cada segundo
+    end
+end
+
+-- Asegurar que el botón funcione después de reaparecer
+player.CharacterAdded:Connect(function(character)
+    -- Rehacer la conexión del botón
+    teleportToGunDrop()
+end)
+
+-- Iniciar monitoreo de GunDrop
+spawn(monitorGunDrop)
+
 local NDS = Window:MakeTab({
 	Name = "Natural Disaster",
 	Icon = "rbxassetid://15143528539",
