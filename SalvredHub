@@ -1480,7 +1480,7 @@ Mm2:AddButton({
 
 local NDS = Window:MakeTab({
 	Name = "Natural Disaster",
-	Icon = "rbxassetid://15143528856",
+	Icon = "rbxassetid://15143528539",
 	PremiumOnly = false
 })
 
