@@ -1367,7 +1367,7 @@ Callback = <function> - The function of the button.
 
 local Evade = Window:MakeTab({
 	Name = "Evade",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://15143528856",
 	PremiumOnly = false
 })
 
@@ -1393,7 +1393,7 @@ Callback = <function> - The function of the button.
 
 local Mm2 = Window:MakeTab({
 	Name = "Mm2",
-	Icon = "rbxassetid://4483345998",
+	Icon = "rbxassetid://15124465439",
 	PremiumOnly = false
 })
 
