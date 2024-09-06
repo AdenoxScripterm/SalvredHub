@@ -1484,7 +1484,113 @@ local NDS = Window:MakeTab({
 	PremiumOnly = false
 })
 
-NDS:AddLabel("Wait Until I Add The Scripts, Quick Spoiler: Auto Farm, Launch Rocket, No Fall Damage.")
+local StuffNDS = NDS:AddSection({
+	Name = "Stuff"
+})
+
+--[[
+Name = <string> - The name of the section.
+]]
+
+-- Variable para almacenar el evento y la posición inicial
+local event
+local initialPosition
+
+-- Añadimos el toggle para mover el HumanoidRootPart
+NDS:AddToggle({
+    Name = "Auto Farm",
+    Default = false,
+    Callback = function(bool)
+        local player = game.Players.LocalPlayer
+        local humanoidRootPart = player.Character and player.Character:FindFirstChild("HumanoidRootPart")
+        
+        if bool and humanoidRootPart then
+            -- Guardamos la posición inicial cuando se activa el toggle
+            initialPosition = humanoidRootPart.CFrame
+            
+            -- Conectamos el evento para mover el HumanoidRootPart
+            event = game:GetService("RunService").RenderStepped:Connect(function()
+                humanoidRootPart.CFrame = CFrame.new(-264, 195, 288)
+            end)
+        elseif event and humanoidRootPart then
+            -- Desconectamos el evento cuando el toggle está desactivado
+            event:Disconnect()
+            -- Regresamos al jugador a la posición inicial
+            humanoidRootPart.CFrame = initialPosition
+        end
+    end
+})
+
+-- Añadimos el botón para iniciar el lanzamiento del cohete
+NDS:AddButton({
+    Name = "Launch Rocket",
+    Callback = function()
+        pcall(function()
+            fireclickdetector(game:GetService("Workspace").Structure["Launch Land"]["SPACESHIP!!"].Shuttle.IgnitionButton.ClickDetector)
+            fireclickdetector(game:GetService("Workspace").Structure["Launch Land"].RocketStand.ConsoleLower.ReleaseButtonLower.ClickDetector)
+            fireclickdetector(game:GetService("Workspace").Structure["Launch Land"].RocketStand.ConsoleUpper.ReleaseButtonUpper.ClickDetector)
+            fireclickdetector(game:GetService("Workspace").Structure["Launch Land"].LoadingTower.Console.ReleaseEntryBridge.ClickDetector)
+        end)
+    end
+})
+
+-- Añadimos el toggle para modificar el WaterLevel
+NDS:AddToggle({
+    Name = "Walk On Water",
+    Default = false,
+    Callback = function(bool)
+        local water = game.Workspace:FindFirstChild("WaterLevel")
+        
+        if water then
+            if not bool then 
+                water.CanCollide = false
+                water.Size = Vector3.new(10, 1, 10)
+            elseif bool then 
+                water.CanCollide = true
+                water.Size = Vector3.new(1000, 1, 1000)
+            end
+        else
+            warn("yo")
+        end
+    end
+})
+
+-- Añadimos el toggle para modificar la colisión de LowerRocks
+NDS:AddToggle({
+    Name = "Walk Into Island Bords",
+    Default = false,
+    Callback = function(bool)
+        for _, v in pairs(game.Workspace:GetDescendants()) do
+            if v.Name == 'LowerRocks' then
+                v.CanCollide = bool
+            end
+        end
+    end
+})
+
+-- Añadimos el botón para destruir BlizzardGui
+NDS:AddButton({
+    Name = "No Blizzard Ui",
+    Callback = function()
+        local playerGui = game.Players.LocalPlayer.PlayerGui
+        local blizzardGui = playerGui:FindFirstChild("BlizzardGui")
+        if blizzardGui then
+            blizzardGui:Destroy()
+        end
+    end
+})
+
+-- Añadimos el botón para destruir SandStormGui
+NDS:AddButton({
+    Name = "No Sandstorm Ui",
+    Callback = function()
+        local playerGui = game.Players.LocalPlayer.PlayerGui
+        local sandStormGui = playerGui:FindFirstChild("SandStormGui")
+        if sandStormGui then
+            sandStormGui:Destroy()
+        end
+    end
+})
 
 --[[
 Name = <string> - The name of the button.
