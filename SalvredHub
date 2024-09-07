@@ -1519,6 +1519,67 @@ Mm2:AddButton({
     end
 })
 
+-- Función para encontrar al jugador con el Knife (Asesino)
+local function findMurderer()
+    for _, player in ipairs(game.Players:GetPlayers()) do
+        if player.Backpack:FindFirstChild("Knife") or (player.Character and player.Character:FindFirstChild("Knife")) then
+            return player
+        end
+    end
+    return nil
+end
+
+-- Función para encontrar al jugador con la Gun (Sheriff)
+local function findSheriff()
+    for _, player in ipairs(game.Players:GetPlayers()) do
+        if player.Backpack:FindFirstChild("Gun") or (player.Character and player.Character:FindFirstChild("Gun")) then
+            return player
+        end
+    end
+    return nil
+end
+
+-- Función para teletransportarte al Asesino
+local function teleportToMurderer()
+    local murderer = findMurderer()
+    if murderer and murderer.Character and murderer.Character:FindFirstChild("HumanoidRootPart") then
+        local player = game.Players.LocalPlayer
+        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = murderer.Character.HumanoidRootPart.CFrame
+        else
+            warn("Bro Murderer Dead...")
+        end
+    else
+        warn("Where Is The Murderer?")
+    end
+end
+
+-- Función para teletransportarte al Sheriff
+local function teleportToSheriff()
+    local sheriff = findSheriff()
+    if sheriff and sheriff.Character and sheriff.Character:FindFirstChild("HumanoidRootPart") then
+        local player = game.Players.LocalPlayer
+        if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+            player.Character.HumanoidRootPart.CFrame = sheriff.Character.HumanoidRootPart.CFrame
+        else
+            warn("Bro Sheriff Dead...")
+        end
+    else
+        warn("Where Is The Sheriff?...")
+    end
+end
+
+-- Añadir botones a la pestaña
+Mm2:AddButton({
+    Name = "Teleport to Murderer",
+    Callback = teleportToMurderer
+})
+
+Mm2:AddButton({
+    Name = "Teleport to Sheriff",
+    Callback = teleportToSheriff
+})
+
 -- Actualización del HumanoidRootPart en caso de regenerarse tras morir
 player.CharacterAdded:Connect(function(newCharacter)
     character = newCharacter
