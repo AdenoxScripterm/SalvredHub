@@ -1487,39 +1487,43 @@ local character = player.Character or player.CharacterAdded:Wait()
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 local Workspace = game:GetService("Workspace")
 
--- Almacenar la posición inicial cuando se presiona el botón
-local initialPosition
-
 -- Función para teletransportarse al GunDrop
 local function teleportToGunDrop()
+    -- Buscar la pistola en tiempo real en cada intento
     local normalFolder = Workspace:FindFirstChild("Normal")
     if normalFolder then
         local gunDrop = normalFolder:FindFirstChild("GunDrop")
         if gunDrop then
-            -- Guardar la posición inicial
-            initialPosition = humanoidRootPart.Position
+            -- Guardar la posición inicial antes de teletransportarse
+            local initialPosition = humanoidRootPart.Position
 
             -- Teletransportar al jugador a la posición del GunDrop
             humanoidRootPart.CFrame = gunDrop.CFrame
 
-            -- Esperar 0.5 segundos y regresar a la posición inicial
+            -- Esperar 0.5 segundos y regresar a la posición original
             wait(0.5)
             humanoidRootPart.CFrame = CFrame.new(initialPosition)
         else
-            warn("GunDrop no encontrado.")
+            warn("Wait To Murderer Kill Sheriff Or Hero.")
         end
     else
-        warn("Carpeta 'Normal' no encontrada.")
+        warn("WAIT TO ROUND START")
     end
 end
 
 -- Creación del botón en OrionLib
 Mm2:AddButton({
-    Name = "Teleport to GunDrop",
+    Name = "Teleport to Gun(When Dropped)",
     Callback = function()
         teleportToGunDrop()
     end
 })
+
+-- Actualización del HumanoidRootPart en caso de regenerarse tras morir
+player.CharacterAdded:Connect(function(newCharacter)
+    character = newCharacter
+    humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+end)
 
 local NDS = Window:MakeTab({
 	Name = "Natural Disaster",
