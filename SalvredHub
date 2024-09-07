@@ -1654,3 +1654,56 @@ if game.PlaceId == 4924922222 then
 
     game:GetService("ReplicatedStorage").RE:FindFirstChild("1RPNam1eTex1t"):FireServer(unpack(args))
 end
+
+
+if game.PlaceId == 142823291 then
+    -- Your code here
+    local Workspace = game:GetService("Workspace")
+
+-- Función para añadir el texto sobre el GunDrop
+local function addGunDropText(gunDrop)
+    -- Verificar si el GunDrop ya tiene un texto para evitar duplicados
+    if gunDrop:FindFirstChild("GunDropText") then return end
+
+    -- Crear un BillboardGui
+    local billboardGui = Instance.new("BillboardGui")
+    billboardGui.Name = "GunDropText"
+    billboardGui.Adornee = gunDrop -- Vincular el GUI al GunDrop
+    billboardGui.Size = UDim2.new(0, 100, 0, 50) -- Tamaño del GUI
+    billboardGui.StudsOffset = Vector3.new(0, 2, 0) -- Altura sobre el objeto
+    billboardGui.AlwaysOnTop = true -- Siempre visible
+
+    -- Crear el texto que aparecerá sobre el GunDrop
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Size = UDim2.new(1, 0, 1, 0) -- Tamaño del texto
+    textLabel.BackgroundTransparency = 1 -- Fondo transparente
+    textLabel.Text = "Gun Here" -- Texto que se mostrará
+    textLabel.TextColor3 = Color3.fromRGB(0, 255, 0) -- Color del texto (verde)
+    textLabel.TextScaled = true -- Escalar el texto
+    textLabel.Font = Enum.Font.SourceSansBold -- Fuente del texto
+    textLabel.Parent = billboardGui -- Poner el texto en el BillboardGui
+
+    -- Poner el BillboardGui en el GunDrop
+    billboardGui.Parent = gunDrop
+end
+
+-- Monitorear la existencia del GunDrop
+local function monitorGunDrop()
+    while true do
+        -- Buscar la carpeta "Normal" en Workspace
+        local normalFolder = Workspace:FindFirstChild("Normal")
+        if normalFolder then
+            -- Buscar el GunDrop dentro de la carpeta "Normal"
+            local gunDrop = normalFolder:FindFirstChild("GunDrop")
+            if gunDrop then
+                -- Añadir el texto si se encuentra el GunDrop
+                addGunDropText(gunDrop)
+            end
+        end
+        wait(1) -- Revisar cada segundo
+    end
+end
+
+-- Iniciar monitoreo
+monitorGunDrop()
+end
