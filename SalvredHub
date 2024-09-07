@@ -1586,6 +1586,57 @@ player.CharacterAdded:Connect(function(newCharacter)
     humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 end)
 
+-- Servicios necesarios
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+-- Función para obtener el rol de un jugador
+local function getRole(player)
+    local character = player.Character
+    if character then
+        if character:FindFirstChild("Knife") then
+            return "Murderer"
+        elseif character:FindFirstChild("Gun") then
+            return "Sheriff"
+        end
+    end
+    return "Innocent"
+end
+
+-- Botón para traer al inocente más cercano hacia ti (cliente)
+Mm2:AddButton({
+    Name = "Bring Closest Innocent (For Kill It When You Are Murderer.)",
+    Callback = function()
+        local closestInnocent = nil
+        local minDistance = math.huge
+
+        for _, v in pairs(Players:GetPlayers()) do
+            local character = v.Character
+            if character and v ~= LocalPlayer then
+                local role = getRole(v)
+                if role == "Innocent" then
+                    local distance = (LocalPlayer.Character.HumanoidRootPart.Position - character.HumanoidRootPart.Position).magnitude
+                    if distance < minDistance then
+                        minDistance = distance
+                        closestInnocent = v
+                    end
+                end
+            end
+        end
+
+        if closestInnocent and closestInnocent.Character then
+            closestInnocent.Character:SetPrimaryPartCFrame(LocalPlayer.Character.HumanoidRootPart.CFrame + Vector3.new(2, 0, 0))
+        else
+            OrionLib:MakeNotification({
+                Name = "Error",
+                Content = "No One Inoccent Founded For Bring.",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    end
+})
+
 local NDS = Window:MakeTab({
 	Name = "Natural Disaster",
 	Icon = "rbxassetid://15143528539",
