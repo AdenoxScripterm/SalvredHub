@@ -1507,17 +1507,23 @@ local function teleportToGunDrop()
             warn("Wait To Murderer Kill Sheriff Or Hero.")
         end
     else
-        warn("WAIT TO ROUND START")
+        warn("Wait Round To Start...")
     end
 end
 
 -- Creación del botón en OrionLib
 Mm2:AddButton({
-    Name = "Teleport to Gun(When Dropped)",
+    Name = "Grab Gun (When Dropped)",
     Callback = function()
         teleportToGunDrop()
     end
 })
+
+-- Actualización del HumanoidRootPart en caso de regenerarse tras morir
+player.CharacterAdded:Connect(function(newCharacter)
+    character = newCharacter
+    humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+end)
 
 -- Función para encontrar al jugador con el Knife (Asesino)
 local function findMurderer()
@@ -1861,4 +1867,5 @@ end
 
 -- Iniciar monitoreo
 monitorGunDrop()
+
 end
