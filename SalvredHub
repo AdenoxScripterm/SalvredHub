@@ -1697,6 +1697,69 @@ monitorGunDrop()
   	end    
 })
 
+local ImageLabel = Instance.new("ImageLabel", Instance.new("ScreenGui", gethui()))
+ImageLabel.Image = ''
+ImageLabel.BackgroundTransparency = 1
+ImageLabel.Position = UDim2.new(.5, 0, .1, 0)
+ImageLabel.AnchorPoint = Vector2.new(.5, .1)
+ImageLabel.Size = UDim2.new(.1, 0, .2, 0)
+ImageLabel.Name = 'MurdLabel'
+ImageLabel.Parent.ResetOnSpawn = false
+
+local Part = Instance.new("Part", workspace)
+Part.Name = "Running Part"
+Part.Position = Vector3.new(0, 1000, 0)
+Part.Anchored = true
+Part.CanCollide = true
+Part.Size = Vector3.new(5, 1, 5)
+
+local Plr = game:GetService("Players").LocalPlayer
+local vim = game:GetService('VirtualInputManager')
+
+function GetMurderer()
+    for i, v in game:GetService("Players"):GetChildren() do
+        if v.Backpack:FindFirstChild"Knife" or v.Character and v.Character:FindFirstChild("Knife") then 
+            return v.Character 
+        end
+    end
+    return nil
+end
+
+function Notify(Title, Text)
+    OrionLib:MakeNotification({Name = Title, Content = Text, Time = 5})
+end
+
+Mm2:AddButton({
+    Name = "Murderer & Sheriff Finder",
+    Callback = function()
+        local a = game:GetService("Players"):GetChildren()
+        table.remove(a, 1)
+        for i, v in pairs(a) do
+            if v.Backpack:FindFirstChild("Gun") or v.Character:FindFirstChild("Gun") then
+                Notify("Sheriff Found!", v.DisplayName .. " is sheriff.")
+            elseif v.Backpack:FindFirstChild("Knife") or v.Character:FindFirstChild("Knife") then
+                Notify("Murderer Found!", v.DisplayName .. " is murderer.")
+            end
+        end
+    end
+})
+
+Mm2:AddToggle({
+    Name = "Auto Shoot Murderer",
+    Default = false,
+    Callback = function(value)
+        ASM = value
+    end
+})
+
+game:GetService("RunService").Heartbeat:Connect(function()
+    if ASM and Plr.Character and GetMurderer() and (Plr.Character:FindFirstChild("Gun") or Plr.Backpack:FindFirstChild("Gun")) then
+        local murderer = GetMurderer()
+        Plr.Character.HumanoidRootPart.CFrame = murderer.HumanoidRootPart.CFrame - murderer.Head.CFrame.LookVector * 10
+        Plr.Character.Gun.KnifeServer.ShootGun:InvokeServer(1, murderer.HumanoidRootPart.Position, "AH")
+    end
+end)
+
 local NDS = Window:MakeTab({
 	Name = "Natural Disaster",
 	Icon = "rbxassetid://15143528539",
