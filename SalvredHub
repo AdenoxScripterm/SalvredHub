@@ -1030,7 +1030,7 @@ Brookhaven:AddButton({
     end
 })
 
-local StuffBrookhaven = Tab:AddSection({
+local StuffBrookhaven = Brookhaven:AddSection({
 	Name = "Another Stuff"
 })
 
