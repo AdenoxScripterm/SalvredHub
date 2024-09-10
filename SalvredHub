@@ -1874,6 +1874,37 @@ NDS:AddButton({
     end
 })
 
+-- Función para crear notificaciones con OrionLib
+local function NotifNDS(title, text, icon)
+    OrionLib:MakeNotification({
+        Name = title;
+        Content = text;
+        Image = icon; -- Cambia esto al icono específico que desees usar
+        Time = 5;
+    })
+end
+
+-- Obtener el jugador local
+local player = game:GetService("Players").LocalPlayer
+local displayName = player.DisplayName
+local userName = player.Name
+
+NDS:AddButton({
+    Name = "Steal The Green Balloon",
+    Callback = function()
+        if game.Workspace:FindFirstChild("GreenBalloon", true) then -- Verificar si existe el GreenBalloon
+            local balloonClone = game.Workspace:FindFirstChild("GreenBalloon", true):Clone() -- Clonar el GreenBalloon
+            balloonClone.Parent = game:GetService("Players").LocalPlayer.Backpack
+
+            -- Notificación de éxito con mensaje y nombres
+            NotifNDS("Success Stoled", "I stole the balloon for you\n" .. displayName .. " (" .. userName .. ")", "http://www.roblox.com/asset/?id=6031075934")
+        else
+            -- Notificación de error
+            NotifNDS("No Balloons", "🎈 There are no balloons...", "http://www.roblox.com/asset/?id=6031075935")
+        end
+    end
+})
+
 --[[
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
