@@ -1068,6 +1068,87 @@ Brookhaven:AddButton({
     Callback = RemoveBanBrookhaven
 })
 
+-- Variables y servicios
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local selectedPlayerRoom = nil
+local textboxValueRoom = nil
+
+-- Función para actualizar la lista de jugadores en el dropdown
+local function updatePlayerListRoom(dropdownRoom)
+    local playerNamesRoom = {}
+
+    for _, player in pairs(Players:GetPlayers()) do
+        table.insert(playerNamesRoom, player.Name)
+    end
+
+    dropdownRoom:Refresh(playerNamesRoom, false)
+end
+
+-- Añadir el TextBox para ingresar el valor
+Brookhaven:AddTextbox({
+    Name = "House Number",
+    Default = "",
+    TextDisappear = false,
+    Callback = function(value)
+        textboxValueRoom = tonumber(value) -- Almacena el valor ingresado
+    end
+})
+
+-- Añadir el Dropdown para seleccionar jugadores
+local DropdownRoom = Brookhaven:AddDropdown({
+    Name = "Select Player To Roomate",
+    Default = "",
+    Options = {}, -- Lista vacía que se actualizará
+    Callback = function(playerName)
+        selectedPlayerRoom = Players:FindFirstChild(playerName) -- Almacena el jugador seleccionado
+    end
+})
+
+-- Actualizar la lista de jugadores al iniciar
+updatePlayerListRoom(DropdownRoom)
+
+-- Actualizar la lista de jugadores cuando un jugador se une o sale
+Players.PlayerAdded:Connect(function()
+    updatePlayerListRoom(DropdownRoom)
+end)
+
+Players.PlayerRemoving:Connect(function()
+    updatePlayerListRoom(DropdownRoom)
+end)
+
+-- Añadir el botón para dar permisos
+Brookhaven:AddButton({
+    Name = "Give Roommate Permission To Selected Player",
+    Callback = function()
+        if selectedPlayerRoom and textboxValueRoom then
+            -- Argumentos para el RemoteEvent
+            local args = {
+                [1] = "GivePermissionLoopToServer",
+                [2] = selectedPlayerRoom, -- Jugador seleccionado en el dropdown
+                [3] = textboxValueRoom -- Valor del textbox
+            }
+
+            -- Enviar evento al servidor
+            ReplicatedStorage.RE:FindFirstChild("1Playe1rTrigge1rEven1t"):FireServer(unpack(args))
+            OrionLib:MakeNotification({
+                Name = "Success Roomate",
+                Content = "Permission granted to " .. selectedPlayerRoom.Name,
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        else
+            OrionLib:MakeNotification({
+                Name = "Error",
+                Content = "Please select a player and place the number of the house.",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    end
+})
+
 local BloxFruit = Window:MakeTab({
 	Name = "BloxFruit",
 	Icon = "rbxassetid://18951446226",
