@@ -1030,6 +1030,44 @@ Brookhaven:AddButton({
     end
 })
 
+local StuffBrookhaven = Tab:AddSection({
+	Name = "Another Stuff"
+})
+
+-- Function to remove the 'BanBoxBrookhaven' folder
+local function RemoveBanBrookhaven()
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local BanBoxBrookhaven = ReplicatedStorage:FindFirstChild("BannedLots")
+
+    if BanBoxBrookhaven and BanBoxBrookhaven:IsA("Folder") then
+        -- Remove the 'BanBoxBrookhaven' folder
+        BanBoxBrookhaven:ClearAllChildren()
+        BanBoxBrookhaven:Destroy()
+
+        -- Success notification
+        OrionLib:MakeNotification({
+            Name = "Success",
+            Content = "'Ban Was Removed :D",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+    else
+        -- Error notification
+        OrionLib:MakeNotification({
+            Name = "Error",
+            Content = "'First Get Ban Bro",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+    end
+end
+
+-- Add button "Unban yourself from a house" to the "Unban" tab
+Brookhaven:AddButton({
+    Name = "Remove Ban",
+    Callback = RemoveBanBrookhaven
+})
+
 local BloxFruit = Window:MakeTab({
 	Name = "BloxFruit",
 	Icon = "rbxassetid://18951446226",
