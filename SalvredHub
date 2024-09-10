@@ -1745,7 +1745,7 @@ Mm2:AddButton({
 })
 
 Mm2:AddToggle({
-    Name = "Auto Shoot Murderer",
+    Name = "Auto Follow Murderer (Use YARHM And Shoot Murderer.)",
     Default = false,
     Callback = function(value)
         ASM = value
