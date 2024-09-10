@@ -1941,7 +1941,7 @@ NDS:AddButton({
             Player.Character:MoveTo(SelectedLocation)
             OrionLib:MakeNotification({
                 Name = "Teleport",
-                Content = "You Are Teleporting To: " .. selected,
+                Content = "You Are Teleporting lol",
                 Image = "rbxassetid://4483345998",
                 Time = 5
             })
