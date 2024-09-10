@@ -1905,6 +1905,57 @@ NDS:AddButton({
     end
 })
 
+local TPSNDS = NDS:AddSection({
+	Name = "Teleports"
+})
+
+-- Opciones de teletransporte
+local TeleportOptions = {
+    ["Map"] = Vector3.new(-122, 50, 15),
+    ["Lobby"] = Vector3.new(-251, 197, 289) -- Cambia las coordenadas según tu lobby
+}
+
+-- Variable para almacenar la selección del dropdown
+local SelectedLocation = nil
+
+-- Crear el dropdown
+NDS:AddDropdown({
+    Name = "Select Place To Teleport.",
+    Options = {"Map", "Lobby"},
+    Callback = function(selected)
+        SelectedLocation = TeleportOptions[selected]
+        OrionLib:MakeNotification({
+            Name = "Selected Place",
+            Content = "You selected: " .. selected,
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+    end
+})
+
+-- Crear el botón para teletransportarse
+NDS:AddButton({
+    Name = "Teleport To Selected",
+    Callback = function()
+        if SelectedLocation then
+            Player.Character:MoveTo(SelectedLocation)
+            OrionLib:MakeNotification({
+                Name = "Teleport",
+                Content = "You Are Teleporting To: " .. selected,
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        else
+            OrionLib:MakeNotification({
+                Name = "Error",
+                Content = "Select A Teleport.",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    end
+})
+
 --[[
 Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
