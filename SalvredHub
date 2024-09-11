@@ -1606,6 +1606,16 @@ local character = player.Character or player.CharacterAdded:Wait()
 local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
 local Workspace = game:GetService("Workspace")
 
+-- Función para mostrar notificaciones usando OrionLib
+local function NotifGunMm2(title, text, duration)
+    OrionLib:MakeNotification({
+        Name = title,
+        Content = text,
+        Image = "rbxassetid://4483345998", -- Icono predeterminado, puedes cambiarlo si lo deseas
+        Time = duration
+    })
+end
+
 -- Función para teletransportarse al GunDrop
 local function teleportToGunDrop()
     -- Buscar la pistola en tiempo real en cada intento
@@ -1620,19 +1630,24 @@ local function teleportToGunDrop()
             humanoidRootPart.CFrame = gunDrop.CFrame
 
             -- Esperar 0.5 segundos y regresar a la posición original
-            wait(0.5)
+            wait(0.4)
             humanoidRootPart.CFrame = CFrame.new(initialPosition)
+
+            -- Notificación de éxito usando OrionLib
+            NotifGunMm2("YESS", "You have the gun rn :D", 3)
         else
-            warn("Wait To Murderer Kill Sheriff Or Hero.")
+            -- Notificación de que no se encontró el GunDrop usando OrionLib
+            NotifGunMm2("Gun Not Found", "Wait To The Murderer Kill Sheriff Or Hero.", 3)
         end
     else
-        warn("Wait Round To Start...")
+        -- Notificación de que no se encontró la carpeta "Normal" usando OrionLib
+        NotifGunMm2("Error", "Wait Round To Start...", 3)
     end
 end
 
 -- Creación del botón en OrionLib
-Mm2:AddButton({
-    Name = "Grab Gun (When Dropped)",
+Tab:AddButton({
+    Name = "Teleport to Gun (When Dropped) (Reworked)",
     Callback = function()
         teleportToGunDrop()
     end
