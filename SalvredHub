@@ -1149,6 +1149,99 @@ Brookhaven:AddButton({
     end
 })
 
+local CarBrookhaven = Brookhaven:AddSection({
+	Name = "Car Stuff"
+})
+
+-- Variables para almacenar Speed y Turbo
+local Speed = 50 -- Velocidad por defecto
+local Turbo = 50 -- Turbo por defecto
+
+-- Función para cambiar la velocidad y el turbo del carro
+local function ChangeCarSpeedAndTurbo(speedValue, turboValue)
+    local player = game.Players.LocalPlayer
+    local car = workspace.Vehicles:FindFirstChild(player.Name .. "Car")
+
+    if car then
+        local body = car:FindFirstChild("Body").VehicleSeat
+        if body then
+            -- Cambiar la velocidad máxima
+            body.TopSpeed.Value = speedValue
+            -- Cambiar el valor del turbo
+            body.Turbo.Value = turboValue
+            
+            OrionLib:MakeNotification({
+                Name = "Applied",
+                Content = "Speed: " .. tostring(speedValue) .. " | Turbo: " .. tostring(turboValue),
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        else
+            OrionLib:MakeNotification({
+                Name = "Error",
+                Content = "If I load your car well or the car went to waste xd",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    else
+        OrionLib:MakeNotification({
+            Name = "Error",
+            Content = "Place A Car First :D",
+            Image = "rbxassetid://4483345998",
+            Time = 5
+        })
+    end
+end
+
+-- Crear TextBox para la velocidad (Speed)
+Brookhaven:AddTextbox({
+    Name = "Change Speed",
+    Default = "50",
+    TextDisappear = false,
+    Callback = function(value)
+        local newSpeed = tonumber(value)
+        if newSpeed then
+            Speed = newSpeed
+        else
+            OrionLib:MakeNotification({
+                Name = "Error",
+                Content = "Place A Correct Number In The Speed...",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    end
+})
+
+-- Crear TextBox para el turbo (Turbo)
+Brookhaven:AddTextbox({
+    Name = "Change Turbo",
+    Default = "50",
+    TextDisappear = false,
+    Callback = function(value)
+        local newTurbo = tonumber(value)
+        if newTurbo then
+            Turbo = newTurbo
+        else
+            OrionLib:MakeNotification({
+                Name = "Error",
+                Content = "Place A Correct Number In The Turbo...",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    end
+})
+
+-- Botón para aplicar los cambios de Speed y Turbo
+Brookhaven:AddButton({
+    Name = "Apply Speed And Turbo",
+    Callback = function()
+        ChangeCarSpeedAndTurbo(Speed, Turbo)
+    end
+})
+
 local BloxFruit = Window:MakeTab({
 	Name = "BloxFruit",
 	Icon = "rbxassetid://18951446226",
