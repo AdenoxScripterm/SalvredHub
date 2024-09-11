@@ -1646,7 +1646,7 @@ local function teleportToGunDrop()
 end
 
 -- Creación del botón en OrionLib
-Tab:AddButton({
+Mm2:AddButton({
     Name = "Teleport to Gun (When Dropped) (Reworked)",
     Callback = function()
         teleportToGunDrop()
