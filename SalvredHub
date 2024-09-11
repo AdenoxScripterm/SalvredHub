@@ -1601,7 +1601,63 @@ local StuffMm2 = Mm2:AddSection({
 	Name = "Stuff"
 })
 
+local player = game.Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+local Workspace = game:GetService("Workspace")
 
+-- Función para mostrar notificaciones usando OrionLib
+local function NotifGunMm2Lol(title, text, duration)
+    OrionLib:MakeNotification({
+        Name = title,
+        Content = text,
+        Image = "rbxassetid://4483345998", -- Icono predeterminado, puedes cambiarlo si lo deseas
+        Time = duration
+    })
+end
+
+-- Función para teletransportarse al GunDrop
+local function teleportToGunDrop()
+    -- Buscar la pistola en tiempo real en cada intento
+    local normalFolder = Workspace:FindFirstChild("Normal")
+    if normalFolder then
+        local gunDrop = normalFolder:FindFirstChild("GunDrop")
+        if gunDrop then
+            -- Guardar la posición inicial antes de teletransportarse
+            local initialPosition = humanoidRootPart.Position
+
+            -- Teletransportar al jugador a la posición del GunDrop
+            humanoidRootPart.CFrame = gunDrop.CFrame
+
+            -- Esperar 0.5 segundos y regresar a la posición original
+            wait(0.5)
+            humanoidRootPart.CFrame = CFrame.new(initialPosition)
+
+            -- Notificación de éxito usando OrionLib
+            NotifGunMm2Lol("Teleport Successful", "You have been teleported to the Gun.", 3)
+        else
+            -- Notificación de que no se encontró el GunDrop usando OrionLib
+            NotifGunMm2Lol("Gun Not Found", "Wait To The Murderer Kill Sheriff Or Hero.", 3)
+        end
+    else
+        -- Notificación de que no se encontró la carpeta "Normal" usando OrionLib
+        NotifGunMm2Lol("Error", "Wait Round To Start", 3)
+    end
+end
+
+-- Creación del botón en OrionLib
+Mm2:AddButton({
+    Name = "Teleport to Gun (When Dropped)",
+    Callback = function()
+        teleportToGunDrop()
+    end
+})
+
+-- Actualización del HumanoidRootPart en caso de regenerarse tras morir
+player.CharacterAdded:Connect(function(newCharacter)
+    character = newCharacter
+    humanoidRootPart = character:WaitForChild("HumanoidRootPart")
+end)
 
 -- Función para encontrar al jugador con el Knife (Asesino)
 local function findMurderer()
