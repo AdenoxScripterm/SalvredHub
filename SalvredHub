@@ -1566,8 +1566,8 @@ PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
 
 LegendsOfSpeed:AddButton({
 	Name = "MyScript",
-	Callback = function()loadstring(game:HttpGet("https://pastebin.com/raw/K6dXZxtG"))()
-      		print("button pressed")
+	Callback = function()
+      		loadstring(game:HttpGet("https://pastebin.com/raw/K6dXZxtG"))()
   	end    
 })
 
@@ -1592,16 +1592,17 @@ PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
 
 Evade:AddButton({
 	Name = "PepesHub",
-	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/PepesGH1/stuff/main/evadeloader.lua"))()
-      		print("button pressed")
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/PepesGH1/stuff/main/evadeloader.lua"))()
   	end    
 })
 
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
-
+Evade:AddButton({
+	Name = "UnKnow Hub X (yooo)",
+	Callback = function()
+      		loadstring(game:HttpGet('https://raw.githubusercontent.com/Unknownproooolucky/Unknown-Hub-X-Universal-Games/main/Games/Evade'))()
+  	end    
+})
 
 local Mm2 = Window:MakeTab({
 	Name = "Mm2",
