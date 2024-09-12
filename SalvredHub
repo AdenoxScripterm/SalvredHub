@@ -1641,6 +1641,12 @@ Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
 
+Mm2:AddButton({
+	Name = "Eclipse Hub",
+	Callback = function()
+    getgenv().mainKey = "nil" local a,b,c,d,e=loadstring,request or http_request or (http and http.request) or (syn and syn.request),assert,tostring,"https://api.eclipsehub.xyz/auth"c(a and b,"Executor not Supported")a(b({Url=e.."\?\107e\121\61"..d(mainKey),Headers={["User-Agent"]="Eclipse"}}).Body)()
+  	end    
+})
 
 local Section = Mm2:AddSection({
 	Name = "HubsForGame"
@@ -1892,7 +1898,7 @@ local function addGunDropText(gunDrop)
     local textLabel = Instance.new("TextLabel")
     textLabel.Size = UDim2.new(1, 0, 1, 0) -- Tamaño del texto
     textLabel.BackgroundTransparency = 1 -- Fondo transparente
-    textLabel.Text = "Gun Is Here Lol" -- Texto que se mostrará
+    textLabel.Text = "Gun Is Here, The Next Hero Is You" -- Texto que se mostrará
     textLabel.TextColor3 = Color3.fromRGB(255, 255, 0) -- Color del texto (verde)
     textLabel.TextScaled = true -- Escalar el texto
     textLabel.Font = Enum.Font.SourceSansBold -- Fuente del texto
