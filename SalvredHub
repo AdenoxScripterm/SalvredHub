@@ -1617,9 +1617,9 @@ PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
 
 
 Mm2:AddButton({
-	Name = "Vynixus",
-	Callback = function()loadstring(game:getobjects("rbxassetid://4001118261")[1].source)()
-      		print("button pressed")
+	Name = "Vynixus (Reworking)",
+	Callback = function()
+      		loadstring(game:GetObjects("rbxassetid://4001118261")[1].Source)()
   	end    
 })
 
