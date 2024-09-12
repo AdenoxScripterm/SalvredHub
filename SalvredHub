@@ -2208,7 +2208,7 @@ PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
 ]]
 
 MemeSea:AddButton({
-	Name = "REDz Hub",
+	Name = "REDzHub",
 	Callback = function()
       		loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/MemeSea/main/Source.lua"))()
   	end    
