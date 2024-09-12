@@ -1680,8 +1680,8 @@ Name = <string> - The name of the section.
 
 Mm2:AddButton({
 	Name = "YARHM",
-	Callback = function()loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-YARHM-12403"))()
-      		print("button pressed")
+	Callback = function()
+      		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-YARHM-12403"))()
   	end    
 })
 
@@ -1692,8 +1692,8 @@ Callback = <function> - The function of the button.
 
 Mm2:AddButton({
 	Name = "YARHM Reborn",
-	Callback = function()loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-YARHM-Elite-14708"))()
-      		print("button pressed")
+	Callback = function()
+      		loadstring(game:HttpGet("https://rawscripts.net/raw/Universal-Script-YARHM-Elite-14708"))()
   	end    
 })
 
@@ -2214,10 +2214,12 @@ MemeSea:AddButton({
   	end    
 })
 
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
+MemeSea:AddButton({
+	Name = "Brutality Hub",
+	Callback = function()
+      		loadstring(game:HttpGet("https://rawscripts.net/raw/UPDATE-4-Meme-Sea-Script-BRUTALITY-HUB-18027"))()
+  	end    
+})
 
 --[[
 	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
