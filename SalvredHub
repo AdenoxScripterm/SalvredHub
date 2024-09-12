@@ -2215,7 +2215,7 @@ MemeSea:AddButton({
 })
 
 MemeSea:AddButton({
-	Name = "Brutality Hub",
+	Name = "Brutality Hub or Matsune Hub",
 	Callback = function()
       		loadstring(game:HttpGet("https://rawscripts.net/raw/UPDATE-4-Meme-Sea-Script-BRUTALITY-HUB-18027"))()
   	end    
