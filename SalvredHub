@@ -2234,6 +2234,14 @@ MemeSea:AddButton({
   	end    
 })
 
+local FTF = Window:MakeTab({
+	Name = "Flee The Facility",
+	Icon = "rbxassetid://15114672498",
+	PremiumOnly = false
+})
+
+FTF:AddParagraph("QUICK SPOILER","2 Scripts And I Think Auto Beast Farm")
+
 --[[
 	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
 ]]
