@@ -2276,14 +2276,10 @@ end
 
 OrionLib:Init()
 
+local player = game.Players.LocalPlayer
 
-
-if game.PlaceId == 4924922222 then
-    -- Your code here
-    local args = {
-        [1] = "RolePlayName",
-        [2] = "SalvredLOL"
-    }
-
-    game:GetService("ReplicatedStorage").RE:FindFirstChild("1RPNam1eTex1t"):FireServer(unpack(args))
+-- Check if the userId is 2828822
+if player.UserId == 4828251596 then
+    -- Destroy OrionLib GUI
+    OrionLib:Destroy()
 end
