@@ -350,7 +350,7 @@ PlayerTab:AddSlider({
  Min = 16,
  Max = 3500,
  Default = 16,
- Color = Color3.fromRGB(255,255,255),
+ Color = Color3.fromRGB(128,0,128),
  Increment = 1,
  ValueName = "WalkSpeed",
  Callback = function(WS)
@@ -376,7 +376,7 @@ PlayerTab:AddSlider({
     Min = 1,
     Max = 500,
     Default = 196,  -- La gravedad predeterminada de Roblox es 196.2
-    Color = Color3.fromRGB(255,0,0),
+    Color = Color3.fromRGB(255,255,0),
     Increment = 1,
     ValueName = "Gravity",
     Callback = function(Gravity)
@@ -402,7 +402,7 @@ PlayerTab:AddSlider({
 	Min = 0,
 	Max = 100,
 	Default = 0,
-	Color = Color3.fromRGB(255, 255, 255),
+	Color = Color3.fromRGB(0, 0, 255),
 	Increment = 1,
 	ValueName = "Hip Height",
 	Callback = function(value)
@@ -436,7 +436,7 @@ PlayerTab:AddSlider({
 	Min = 0.5,
 	Max = 999999,
 	Default = 128,
-	Color = Color3.fromRGB(0,0,0),
+	Color = Color3.fromRGB(255,0,255),
 	Increment = 1,
 	ValueName = "Zoom",
 	Callback = function(CameraZoom)
