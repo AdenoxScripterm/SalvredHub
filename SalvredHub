@@ -431,6 +431,19 @@ PlayerTab:AddSlider({
     end    
 })
 
+PlayerTab:AddSlider({
+	Name = "Camera Zoom",
+	Min = 128,
+	Max = 999999,
+	Default = 128,
+	Color = Color3.fromRGB(0,0,0),
+	Increment = 1,
+	ValueName = "Zoom",
+	Callback = function(CameraZoom)
+		game.Players.LocalPlayer.CameraMaxZoomDistance = CameraZoom
+	end    
+})
+
 local selectedPlayer
 local cameraToggle = false
 local playerDropdown
