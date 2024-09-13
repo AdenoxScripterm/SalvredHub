@@ -433,7 +433,7 @@ PlayerTab:AddSlider({
 
 PlayerTab:AddSlider({
 	Name = "Camera Zoom",
-	Min = 128,
+	Min = 0.5,
 	Max = 999999,
 	Default = 128,
 	Color = Color3.fromRGB(0,0,0),
