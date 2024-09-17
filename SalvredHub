@@ -54,8 +54,7 @@ end
 local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 
 local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/Orion-Library-Edited/main/Orion%20Edited"))()
-local Window = OrionLib:MakeWindow({Name = "SalvredHub | " .. identifyexecutor() .. " | " .. GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "SalvredHubCode"})
-
+local Window = OrionLib:MakeWindow({Name = "SalvredHub | " .. identifyexecutor() .. " | " .. GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "SalvredHubCode", IntroText = "SalvredHub Library Used: Orion Library Edited", IntroIcon = "rbxassetid://17140853847", Icon = "rbxassetid://18965493710"})
 OrionLib:MakeNotification({
 	Name = "1/09/2024",
 	Content = "Hello, look, go to the clipboard and you will see that you have a link. You will put that link in Google, it will take you to scriptblox, read what the description says so that it works in Codex.",
