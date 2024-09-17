@@ -1733,6 +1733,54 @@ Name = <string> - The name of the button.
 Callback = <function> - The function of the button.
 ]]
 
+PrisonLife:AddButton({
+    Name = "Mod Gun (UnEquip The Tool When You Press The Button)",
+    Callback = function()
+        local plr = game.Players.LocalPlayer
+        if plr.Character:FindFirstChildOfClass("Tool") then
+            local Tool = plr.Character:FindFirstChildOfClass("Tool")
+            if not Tool:FindFirstChild("GunStates") then
+                OrionLib:MakeNotification({
+                    Name = "Error",
+                    Content = "Umm",
+                    Image = "rbxassetid://4483345998",
+                    Time = 5
+                })
+                return
+            end
+            local cc = require(Tool.GunStates)
+            cc["Damage"] = 9e9
+            cc["FireRate"] = 0.001
+            cc["Range"] = math.huge
+            cc["MaxAmmo"] = math.huge
+            cc["StoredAmmo"] = math.huge
+            cc["AmmoPerClip"] = math.huge
+            cc["CurrentAmmo"] = math.huge
+            if Tool.Name ~= "Remington 870" then
+                cc["Bullets"] = 1
+                cc["AutoFire"] = true
+            end
+            table.insert(Reload_Guns, Tool)
+            plr.Character:FindFirstChildOfClass("Humanoid"):UnequipTools()
+
+            -- Notificación de éxito
+            OrionLib:MakeNotification({
+                Name = "Mod Succesful",
+                Content = "The Gun Was Modded",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        else
+            OrionLib:MakeNotification({
+                Name = "Error",
+                Content = "You Dont Have No One Gun Equip.",
+                Image = "rbxassetid://4483345998",
+                Time = 5
+            })
+        end
+    end    
+})
+
 local LegendsOfSpeed = Window:MakeTab({
 	Name = "LegendsOfSpeed",
 	Icon = "rbxassetid://18979034603",
@@ -2409,7 +2457,7 @@ local FTF = Window:MakeTab({
 	PremiumOnly = false
 })
 
-FTF:AddParagraph("QUICK SPOILER","2 Scripts And I Think Auto Beast Farm")
+FTF:AddParagraph("Sorry","Only 1 Script And Beast Farm Cancel/n But CHECH BROOKHAVEN TAB AND/n PRISON LIFE TAB")
 
 --[[
 	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
