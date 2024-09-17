@@ -2460,7 +2460,7 @@ local FTF = Window:MakeTab({
 FTF:AddParagraph("Hello","Only 1 Script rn Auto Beast Farm is Cancelled 😭")
 
 FTF:AddButton({
-	Name = "LETME KNOW THE NAME FROM THIS SCRIPT LOL",
+	Name = "FleeWare",
 	Callback = function()
       		loadstring(game:HttpGet("https://raw.githubusercontent.com/Drifty96/ftfgui/main/ftfgui", true))()
   	end    
