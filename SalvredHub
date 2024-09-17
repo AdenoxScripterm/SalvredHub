@@ -1254,6 +1254,176 @@ Brookhaven:AddButton({
     end
 })
 
+local PlayerStuffBrookhaven = Brookhaven:AddSection({
+	Name = "You"
+})
+
+local ToggleColorsBrookhavenRPNameColor = false
+local ColorChangeLoopBrookhavenRPNameColor = nil
+
+local function ChangeColorBrookhavenRPNameColor()
+    while ToggleColorsBrookhavenRPNameColor do
+        local ColorsBrookhavenRPNameColor = {
+            Color3.fromRGB(255, 0, 0),   -- Rojo
+            Color3.fromRGB(255, 128, 0), -- Naranja
+            Color3.fromRGB(255, 255, 0), -- Amarillo
+            Color3.fromRGB(128, 255, 0), -- Verde claro
+            Color3.fromRGB(0, 255, 0),   -- Verde
+            Color3.fromRGB(0, 255, 128), -- Verde aqua
+            Color3.fromRGB(0, 255, 255), -- Cian
+            Color3.fromRGB(0, 128, 255), -- Azul claro
+            Color3.fromRGB(0, 0, 255),   -- Azul
+            Color3.fromRGB(128, 0, 255), -- Púrpura
+            Color3.fromRGB(255, 0, 255), -- Magenta
+            Color3.fromRGB(255, 0, 128)  -- Rosa
+        }
+        for _, ColorBrookhavenRPNameColor in pairs(ColorsBrookhavenRPNameColor) do
+            if not ToggleColorsBrookhavenRPNameColor then return end
+            local ArgsBrookhavenRPNameColor = {
+                [1] = "PickingRPNameColor",
+                [2] = ColorBrookhavenRPNameColor
+            }
+            game:GetService("ReplicatedStorage").RE["1RPNam1eColo1r"]:FireServer(unpack(ArgsBrookhavenRPNameColor))
+            wait(1) -- Espera 1 segundo antes de cambiar al siguiente color
+        end
+    end
+end
+
+-- Añadir el toggle a la pestaña
+Brookhaven:AddToggle({
+    Name = "Rainbow Color Name",
+    Default = false,
+    Callback = function(ValueBrookhavenRPNameColor)
+        ToggleColorsBrookhavenRPNameColor = ValueBrookhavenRPNameColor
+        if ToggleColorsBrookhavenRPNameColor then
+            ColorChangeLoopBrookhavenRPNameColor = coroutine.wrap(ChangeColorBrookhavenRPNameColor)
+            ColorChangeLoopBrookhavenRPNameColor()
+        end
+    end
+})
+
+local ToggleColorsBrookhavenRPBioColor = false
+local ColorChangeLoopBrookhavenRPBioColor = nil
+
+local function ChangeColorBrookhavenRPBioColor()
+    while ToggleColorsBrookhavenRPBioColor do
+        local ColorsBrookhavenRPBioColor = {
+            Color3.fromRGB(255, 0, 0),   -- Rojo
+            Color3.fromRGB(255, 128, 0), -- Naranja
+            Color3.fromRGB(255, 255, 0), -- Amarillo
+            Color3.fromRGB(128, 255, 0), -- Verde claro
+            Color3.fromRGB(0, 255, 0),   -- Verde
+            Color3.fromRGB(0, 255, 128), -- Verde aqua
+            Color3.fromRGB(0, 255, 255), -- Cian
+            Color3.fromRGB(0, 128, 255), -- Azul claro
+            Color3.fromRGB(0, 0, 255),   -- Azul
+            Color3.fromRGB(128, 0, 255), -- Púrpura
+            Color3.fromRGB(255, 0, 255), -- Magenta
+            Color3.fromRGB(255, 0, 128)  -- Rosa
+        }
+        for _, ColorBrookhavenRPBioColor in pairs(ColorsBrookhavenRPBioColor) do
+            if not ToggleColorsBrookhavenRPBioColor then return end
+            local ArgsBrookhavenRPBioColor = {
+                [1] = "PickingRPBioColor",
+                [2] = ColorBrookhavenRPBioColor
+            }
+            game:GetService("ReplicatedStorage").RE:FindFirstChild("1RPNam1eColo1r"):FireServer(unpack(ArgsBrookhavenRPBioColor))
+            wait(1) -- Espera 1 segundo antes de cambiar al siguiente color
+        end
+    end
+end
+
+-- Añadir el toggle a la pestaña
+Brookhaven:AddToggle({
+    Name = "Rainbow Color Bio",
+    Default = false,
+    Callback = function(ValueBrookhavenRPBioColor)
+        ToggleColorsBrookhavenRPBioColor = ValueBrookhavenRPBioColor
+        if ToggleColorsBrookhavenRPBioColor then
+            ColorChangeLoopBrookhavenRPBioColor = coroutine.wrap(ChangeColorBrookhavenRPBioColor)
+            ColorChangeLoopBrookhavenRPBioColor()
+        end
+    end
+})
+
+local PlayersStuffBrookhaven = Brookhaven:AddSection({
+	Name = "Players"
+})
+
+-- Dropdown de jogadores
+local PlayerDropdownBrookhaven = Brookhaven:AddDropdown({
+    Name = "Select A Player To Bring Her",
+    Default = "",
+    Options = {},  -- Opciones se llenarán dinámicamente
+    Callback = function(ValueBrookhaven)
+        SelectedPlayerBrookhaven = game.Players:FindFirstChild(ValueBrookhaven)
+    end
+})
+
+-- Função para atualizar a lista de jogadores
+local function UpdatePlayerListBrookhavenBn()
+    local PlayerNamesBrookhaven = {}
+    for _, PlayerBrookhaven in pairs(game.Players:GetPlayers()) do
+        table.insert(PlayerNamesBrookhaven, PlayerBrookhaven.Name)
+    end
+    PlayerDropdownBrookhaven:Refresh(PlayerNamesBrookhaven, true)  -- Refrescar las opciones del dropdown
+end
+
+-- Atualiza a lista de jogadores quando um jogador entra ou sai
+game.Players.PlayerAdded:Connect(UpdatePlayerListBrookhavenBn)
+game.Players.PlayerRemoving:Connect(UpdatePlayerListBrookhavenBn)
+
+-- Atualiza a lista de jogadores ao iniciar
+UpdatePlayerListBrookhavenBn()
+
+-- Função para teleportar e matar o jogador
+local function TeleportAndKillPlayerBrookhaven(TargetPlayerBrookhaven)
+    if not TargetPlayerBrookhaven then
+        -- Notificação se nenhum jogador for selecionado
+        OrionLib:MakeNotification({
+            Name = "Error",
+            Content = "Select A Player",
+            Time = 5
+        })
+        return
+    end
+
+    local MyHRPBrookhaven = game.Players.LocalPlayer.Character.HumanoidRootPart
+    local TargetHRPBrookhaven = TargetPlayerBrookhaven.Character:WaitForChild("HumanoidRootPart")
+    
+    -- Armazena a posição original
+    local OriginalPositionBrookhaven = MyHRPBrookhaven.CFrame
+    
+    -- Teleporta para a posição do alvo
+    MyHRPBrookhaven.CFrame = TargetHRPBrookhaven.CFrame
+    wait(1)
+    
+    local ConnectionBrookhaven
+    ConnectionBrookhaven = game:GetService("RunService").Stepped:Connect(function()
+        MyHRPBrookhaven.CFrame = TargetHRPBrookhaven.CFrame
+        if TargetPlayerBrookhaven.Character and TargetPlayerBrookhaven.Character:FindFirstChild("Humanoid") and TargetPlayerBrookhaven.Character.Humanoid.Sit then
+            -- Retorna à posição original
+            MyHRPBrookhaven.CFrame = OriginalPositionBrookhaven
+            ConnectionBrookhaven:Disconnect()
+        end
+    end)
+end
+
+-- Adiciona o botão para matar o jogador
+Brookhaven:AddButton({
+    Name = "Bring Selected Player",
+    Callback = function()
+         local args = {
+    [1] = "PickingTools",
+    [2] = "Couch"
+}
+
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1Too1l"):InvokeServer(unpack(args))
+        wait("0.5")
+        TeleportAndKillPlayerBrookhaven(SelectedPlayerBrookhaven)
+    end    
+})
+
 local BloxFruit = Window:MakeTab({
 	Name = "BloxFruit",
 	Icon = "rbxassetid://18951446226",
