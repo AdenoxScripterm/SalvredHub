@@ -2457,7 +2457,14 @@ local FTF = Window:MakeTab({
 	PremiumOnly = false
 })
 
-FTF:AddParagraph("Sorry","Only 1 Script And Beast Farm Cancel/n But CHECH BROOKHAVEN TAB AND/n PRISON LIFE TAB")
+FTF:AddParagraph("Hello","Only 1 Script rn Auto Beast Farm is Cancelled 😭")
+
+FTF:AddButton({
+	Name = "LETME KNOW THE NAME FROM THIS SCRIPT LOL",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/Drifty96/ftfgui/main/ftfgui", true))()
+  	end    
+})
 
 --[[
 	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
