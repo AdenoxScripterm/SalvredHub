@@ -1,13 +1,3 @@
-local customfont = "Arcade" --Enter one of all existed fonts.
-
-for x, y in pairs(game:GetDescendants()) do
-    if y:IsA("TextLabel") or y:IsA("TextButton") then
-        y.Font = Enum.Font[customfont]
-    end
-end
-
-setclipboard("https://scriptblox.com/script/Universal-Script-Read-This-Please-17832")
-
 local player = game.Players.LocalPlayer
 
 local function createBillboardGui(character)
@@ -54,7 +44,7 @@ end
 local GameName = game:GetService("MarketplaceService"):GetProductInfo(game.PlaceId).Name
 
 local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/Orion-Library-Edited/main/Orion%20Edited"))()
-local Window = OrionLib:MakeWindow({Name = "SalvredHub X (L-Gang Version)🥵 | " .. identifyexecutor() .. " | " .. GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "SalvredHubCode", IntroText = "SalvredHub Library Used: Orion Library Edited", IntroIcon = "rbxassetid://17140853847", Icon = "rbxassetid://18965493710"})
+local Window = OrionLib:MakeWindow({Name = "SalvredHub X | " .. identifyexecutor() .. " | " .. GameName, HidePremium = false, SaveConfig = true, ConfigFolder = "SalvredHubCode", IntroText = "SalvredHub Library Used: Orion Library Edited", IntroIcon = "rbxassetid://17140853847", Icon = "rbxassetid://18965493710"})
 OrionLib:MakeNotification({
 	Name = "1/09/2024",
 	Content = "Hello, look, go to the clipboard and you will see that you have a link. You will put that link in Google, it will take you to scriptblox, read what the description says so that it works in Codex.",
@@ -378,7 +368,7 @@ PlayerTab:AddSlider({
     Color = Color3.fromRGB(255,255,0),
     Increment = 1,
     ValueName = "Gravity",
-    Callback = function(GravityV)
+    Callback = function(GravityVS)
         game.Workspace.Gravity = GravityVS
     end    
 })
@@ -443,17 +433,13 @@ PlayerTab:AddSlider({
 	end    
 })
 
-PlayerTab:AddSlider({
+PlayerTab:AddTextbox({
 	Name = "Clock Time",
-	Min = 0,
-	Max = 24,
-	Default = 0,
-	Color = Color3.fromRGB(255,255,255),
-	Increment = 1,
-	ValueName = "Clock Time",
-	Callback = function(ClockTimeV)
+	Default = "Clock In Game",
+	TextDisappear = true,
+	Callback = function(ClockTimeVs)
 		game:GetService("Lighting").ClockTime = ClockTimeVS
-	end    
+	end	  
 })
 
 local selectedPlayer
