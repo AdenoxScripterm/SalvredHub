@@ -342,7 +342,7 @@ PlayerTab:AddSlider({
  Color = Color3.fromRGB(128,0,128),
  Increment = 1,
  ValueName = "WalkSpeed",
- Callback = function(WSV)
+ Callback = function(WSVS)
   game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = WSVS
  end    
 })
@@ -355,7 +355,7 @@ PlayerTab:AddSlider({
  Color = Color3.fromRGB(255,0,0),
  Increment = 1,
  ValueName = "JumpPower",
- Callback = function(JPV)
+ Callback = function(JPVS)
   game.Players.LocalPlayer.Character.Humanoid.JumpPower = JPVS
  end    
 })
@@ -433,13 +433,17 @@ PlayerTab:AddSlider({
 	end    
 })
 
-PlayerTab:AddTextbox({
-	Name = "Clock Time",
-	Default = "Clock In Game",
-	TextDisappear = true,
-	Callback = function(ClockTimeVs)
+PlayerTab:AddSlider({
+	Name = "Slider",
+	Min = 0,
+	Max = 20,
+	Default = 5,
+	Color = Color3.fromRGB(255,255,255),
+	Increment = 1,
+	ValueName = "bananas",
+	Callback = function(ClockTimeVS)
 		game:GetService("Lighting").ClockTime = ClockTimeVS
-	end	  
+	end    
 })
 
 local selectedPlayer
