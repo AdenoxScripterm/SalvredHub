@@ -446,6 +446,82 @@ PlayerTab:AddSlider({
 	end    
 })
 
+local selectedPlayer
+local cameraToggle = false
+local playerDropdown
+
+-- Función para actualizar la lista de jugadores
+local function updatePlayerList()
+    local playerNames = {}
+    for _, player in pairs(game.Players:GetPlayers()) do
+        table.insert(playerNames, player.Name)
+    end
+    playerDropdown:Refresh(playerNames, true)  -- Refrescar las opciones del dropdown
+end
+
+-- Función para actualizar la cámara
+local function updateCamera()
+    if cameraToggle and selectedPlayer and selectedPlayer.Character then
+        local humanoid = selectedPlayer.Character:FindFirstChild("Humanoid")
+        if humanoid then
+            workspace.CurrentCamera.CameraSubject = humanoid
+        end
+    else
+        workspace.CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character:FindFirstChild("Humanoid")
+    end
+end
+
+-- Función para manejar el cambio de cámara cuando el personaje seleccionado muere
+local function onCharacterAdded(character)
+    local humanoid = character:WaitForChild("Humanoid")
+    humanoid.Died:Connect(function()
+        if selectedPlayer == game.Players.LocalPlayer then
+            updateCamera()
+        end
+    end)
+    updateCamera()  -- Actualizar la cámara cuando el personaje se añade
+end
+
+-- Dropdown para seleccionar el jugador
+playerDropdown = PlayerTab:AddDropdown({
+    Name = "Select Player To View",
+    Default = "",
+    Options = {},
+    Callback = function(Value)
+        selectedPlayer = game.Players:FindFirstChild(Value)
+        if selectedPlayer then
+            selectedPlayer.CharacterAdded:Connect(onCharacterAdded)  -- Conectar el evento CharacterAdded
+            if selectedPlayer.Character then
+                onCharacterAdded(selectedPlayer.Character)
+            end
+        end
+        updateCamera()  -- Actualizar la cámara al cambiar de jugador
+    end    
+})
+
+-- Toggle para activar/desactivar el seguimiento de la cámara
+PlayerTab:AddToggle({
+    Name = "View Selected Player",
+    Default = false,
+    Callback = function(Value)
+        cameraToggle = Value
+        updateCamera()  -- Actualizar la cámara según el estado del toggle
+    end    
+})
+
+-- Actualizar la lista de jugadores al entrar o salir un jugador
+game.Players.PlayerAdded:Connect(updatePlayerList)
+game.Players.PlayerRemoving:Connect(updatePlayerList)
+
+-- Manejar la aparición del personaje del jugador local
+game.Players.LocalPlayer.CharacterAdded:Connect(function(character)
+    character:WaitForChild("Humanoid")  -- Esperar a que aparezca el Humanoid
+    updateCamera()  -- Asegurar que la cámara siga al jugador seleccionado al reaparecer
+end)
+
+-- Inicializar la lista de jugadores cuando se carga el script
+updatePlayerList()
+
 local Universal = Window:MakeTab({
 	Name = "Universal",
 	Icon = "rbxassetid://11558559086",
