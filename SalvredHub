@@ -353,7 +353,7 @@ PlayerTab:AddSlider({
  Increment = 1,
  ValueName = "WalkSpeed",
  Callback = function(WSV)
-  game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = WSV
+  game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = WSVS
  end    
 })
 
@@ -366,7 +366,7 @@ PlayerTab:AddSlider({
  Increment = 1,
  ValueName = "JumpPower",
  Callback = function(JPV)
-  game.Players.LocalPlayer.Character.Humanoid.JumpPower = JP
+  game.Players.LocalPlayer.Character.Humanoid.JumpPower = JPVS
  end    
 })
 
@@ -379,7 +379,7 @@ PlayerTab:AddSlider({
     Increment = 1,
     ValueName = "Gravity",
     Callback = function(GravityV)
-        game.Workspace.Gravity = GravityV
+        game.Workspace.Gravity = GravityVS
     end    
 })
 
@@ -404,8 +404,8 @@ PlayerTab:AddSlider({
 	Color = Color3.fromRGB(0, 0, 255),
 	Increment = 1,
 	ValueName = "Hip Height",
-	Callback = function(HHV)
-		setHipHeight(HHV)
+	Callback = function(HHVS)
+		setHipHeight(HHVS)
 	end    
 })
 
@@ -425,8 +425,8 @@ PlayerTab:AddSlider({
     Default = 70,  -- Valor predeterminado del FOV
     Increment = 1,
     ValueName = "Fov",
-    Callback = function(FovV)
-        workspace.CurrentCamera.FieldOfView = FovV
+    Callback = function(FovVS)
+        workspace.CurrentCamera.FieldOfView = FovVS
     end    
 })
 
@@ -438,8 +438,8 @@ PlayerTab:AddSlider({
 	Color = Color3.fromRGB(255,0,255),
 	Increment = 1,
 	ValueName = "Zoom",
-	Callback = function(CameraZoomV)
-		game.Players.LocalPlayer.CameraMaxZoomDistance = CameraZoomV
+	Callback = function(CameraZoomVS)
+		game.Players.LocalPlayer.CameraMaxZoomDistance = CameraZoomVS
 	end    
 })
 
@@ -452,7 +452,7 @@ PlayerTab:AddSlider({
 	Increment = 1,
 	ValueName = "Clock Time",
 	Callback = function(ClockTimeV)
-		game:GetService("Lighting").ClockTime = ClockTimeV
+		game:GetService("Lighting").ClockTime = ClockTimeVS
 	end    
 })
 
