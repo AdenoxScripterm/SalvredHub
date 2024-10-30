@@ -710,7 +710,7 @@ Callback = <function> - The function of the button.
 ]]
 
 Universal:AddButton({
-	Name = "Fly Mobile (V1.0",
+	Name = "Fly Mobile (V1.0)",
 	Callback = function()loadstring(game:HttpGet("https://pastebin.com/raw/XEhjj81x"))()
       		print("SexoKat")
   	end    
