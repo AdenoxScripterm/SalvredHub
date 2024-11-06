@@ -2492,14 +2492,26 @@ FTF:AddButton({
   	end    
 })
 
+local TSBTab = Window:MakeTab({
+	Name = "Tsb",
+	Icon = "rbxassetid://4483345998",
+	PremiumOnly = false
+})
+
+TSBTab:AddParagraph("Game Name:","The Strongest Battlegrounds.")
+
+local Section = TSBTab:AddSection({
+	Name = "Moveset"
+})
+
 --[[
 	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
 ]]
 -- new stuff
 _G.CodexUiCustomSettings = {
 			CodexSpooferImage = 18965493710,
-			CodexSpooferText = "SalvredHub",
-			CodexSpooferPoweredBy = "Heyy Bro",
+			CodexSpooferText = "SalvredHub X/SHX",
+			CodexSpooferPoweredBy = "Hello",
 			FloatingIconColor=Color3.fromRGB(0, 0, 0),
 			MainUiBackground = Color3.fromRGB(0, 0, 0),
 			Icons=Color3.fromRGB(255, 255, 255),
