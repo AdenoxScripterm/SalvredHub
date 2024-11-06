@@ -2504,6 +2504,21 @@ local Section = TSBTab:AddSection({
 	Name = "Moveset"
 })
 
+TSBTab:AddButton({
+	Name = "Saitama To Aoi Todo",
+	Callback = function()
+      		loadstring(game:HttpGet("https://raw.githubusercontent.com/Nova2ezz/Todo-moveset/refs/heads/main/Todo"))()
+  	end    
+})
+
+TSBTab:AddButton({
+	Name = "Saitama To Gojo v1",
+	Callback = function()
+      		getgenv().morph = true -- turn false to true if you want custom accessories
+loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/BaldyToSorcerer/refs/heads/main/LatestV2.lua"))()
+  	end    
+})
+
 --[[
 	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
 ]]
