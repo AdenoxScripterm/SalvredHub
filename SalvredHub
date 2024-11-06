@@ -1872,6 +1872,7 @@ Icon = <string> - The icon of the tab.
 PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
 ]]
 
+Mm2:AddParagraph("Game Name:","Murder Mystery 2")
 
 Mm2:AddButton({
 	Name = "Vynixus (Reworking)",
@@ -2512,7 +2513,7 @@ TSBTab:AddButton({
 })
 
 TSBTab:AddButton({
-	Name = "Saitama To Gojo v1",
+	Name = "Saitama To Gojo V1",
 	Callback = function()
       		getgenv().morph = true -- turn false to true if you want custom accessories
 loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/BaldyToSorcerer/refs/heads/main/LatestV2.lua"))()
