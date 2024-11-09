@@ -2454,7 +2454,7 @@ Callback = <function> - The function of the button.
 
 local MemeSea = Window:MakeTab({
 	Name = "Meme Sea",
-	Icon = "rbxassetid://15114667107",
+	Icon = "rbxassetid://15114672498",
 	PremiumOnly = false
 })
 
@@ -2480,7 +2480,7 @@ MemeSea:AddButton({
 
 local FTF = Window:MakeTab({
 	Name = "Flee The Facility",
-	Icon = "rbxassetid://15114672498",
+	Icon = "rbxassetid://15143529209",
 	PremiumOnly = false
 })
 
