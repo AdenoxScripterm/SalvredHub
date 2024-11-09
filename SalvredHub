@@ -2253,7 +2253,7 @@ end)
 
 local NDS = Window:MakeTab({
 	Name = "Natural Disaster",
-	Icon = "rbxassetid://15143528539",
+	Icon = "rbxassetid://15143528856",
 	PremiumOnly = false
 })
 
