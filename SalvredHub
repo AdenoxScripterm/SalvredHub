@@ -1433,6 +1433,9 @@ local function TeleportAndKillPlayerBrookhaven(TargetPlayerBrookhaven)
             ConnectionBrookhaven:Disconnect()
 
             wait("0.9")
+            
+            PlayAnimBringBrookhaven:Stop()
+            
             local Player = game.Players.LocalPlayer
 local BackPack = Player:WaitForChild("Backpack")
 
@@ -1459,6 +1462,20 @@ Brookhaven:AddButton({
 game:GetService("ReplicatedStorage").RE:FindFirstChild("1Clea1rTool1s"):FireServer(unpack(args))
 
 wait("0.5")
+
+         local player = game.Players.LocalPlayer
+repeat wait() until player.Character.Humanoid
+local humanoid = player.Character.Humanoid
+local character = player.Character or player.CharacterAdded:Wait()
+local UserInputService = game:GetService("UserInputService")
+
+local AnimBringBrookhaven = Instance.new("Animation")
+AnimBringBrookhaven.AnimationId = "rbxassetid://4895770443"
+
+local PlayAnimBringBrookhaven = humanoid:LoadAnimation(AnimBringBrookhaven)
+PlayAnimBringBrookhaven:Play()
+
+end)
 
          local args = {
     [1] = "PickingTools",
@@ -1660,7 +1677,7 @@ PremiumOnly = <bool> - Makes the tab accessible to Sirus Premium users only.
 
 
 PrisonLife:AddButton({
-	Name = "PrisonWare",
+	Name = "Prison Ware",
 	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/Denverrz/scripts/master/PRISONWARE_v1.3.txt"))();
       		print("button pressed")
   	end    
@@ -1673,7 +1690,7 @@ Callback = <function> - The function of the button.
 
 
 PrisonLife:AddButton({
-	Name = "TigerAdmin",
+	Name = "Tiger Admin (Discontinued)",
 	Callback = function()loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/TigerEdited/main/Tiger%20Admin"))()
       		print("button pressed")
   	end    
