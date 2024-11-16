@@ -1429,6 +1429,16 @@ local function TeleportAndKillPlayerBrookhaven(TargetPlayerBrookhaven)
         MyHRPBrookhaven.CFrame = TargetHRPBrookhaven.CFrame
         if TargetPlayerBrookhaven.Character and TargetPlayerBrookhaven.Character:FindFirstChild("Humanoid") and TargetPlayerBrookhaven.Character.Humanoid.Sit then
             -- Retorna à posição original
+            local Player = game.Players.LocalPlayer
+local BackPack = Player:WaitForChild("Backpack")
+
+local Couch = Player.Character:FindFirstChild("Couch")
+if Couch then
+    Couch.Parent = BackPack
+    print("Success Teleport To You The Player Selected.")
+else
+    print("Mmmm")
+end
             MyHRPBrookhaven.CFrame = OriginalPositionBrookhaven
             ConnectionBrookhaven:Disconnect()
         end
