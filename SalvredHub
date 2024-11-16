@@ -1433,9 +1433,7 @@ local function TeleportAndKillPlayerBrookhaven(TargetPlayerBrookhaven)
             ConnectionBrookhaven:Disconnect()
 
             wait("0.9")
-            
-            PlayAnimBringBrookhaven:Stop()
-            
+            playAnim2:Stop()
             local Player = game.Players.LocalPlayer
 local BackPack = Player:WaitForChild("Backpack")
 
@@ -1462,21 +1460,19 @@ Brookhaven:AddButton({
 game:GetService("ReplicatedStorage").RE:FindFirstChild("1Clea1rTool1s"):FireServer(unpack(args))
 
 wait("0.5")
-
          local player = game.Players.LocalPlayer
 repeat wait() until player.Character.Humanoid
 local humanoid = player.Character.Humanoid
 local character = player.Character or player.CharacterAdded:Wait()
 local UserInputService = game:GetService("UserInputService")
 
-local AnimBringBrookhaven = Instance.new("Animation")
-AnimBringBrookhaven.AnimationId = "rbxassetid://4895770443"
+local anim2 = Instance.new("Animation")
+anim2.AnimationId = "rbxassetid://4895770443"
 
-local PlayAnimBringBrookhaven = humanoid:LoadAnimation(AnimBringBrookhaven)
-PlayAnimBringBrookhaven:Play()
+local playAnim2 = humanoid:LoadAnimation(anim2)
+playAnim2:Play()
 
 end)
-
          local args = {
     [1] = "PickingTools",
     [2] = "Couch"
