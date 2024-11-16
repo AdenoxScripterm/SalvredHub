@@ -1455,6 +1455,15 @@ wait("0.5")
 
 game:GetService("ReplicatedStorage").RE:FindFirstChild("1Too1l"):InvokeServer(unpack(args))
         wait("0.5")
+        local Player = game.Players.LocalPlayer
+local BackPack = Player:WaitForChild("Backpack")
+
+local Couch = BackPack:FindFirstChild("Couch")
+if Couch then
+    Player.Character:WaitForChild("Humanoid"):EquipTool(Couch)
+else
+    print("Couch Not Founded")
+end
         TeleportAndKillPlayerBrookhaven(SelectedPlayerBrookhaven)
     end    
 })
