@@ -1440,6 +1440,15 @@ Brookhaven:AddButton({
     Name = "Bring Selected Player",
     Callback = function()
          local args = {
+    [1] = "PlayerWantsToDeleteTool",
+    [2] = "Couch"
+}
+
+game:GetService("ReplicatedStorage").RE:FindFirstChild("1Clea1rTool1s"):FireServer(unpack(args))
+
+wait("0.5")
+
+         local args = {
     [1] = "PickingTools",
     [2] = "Couch"
 }
