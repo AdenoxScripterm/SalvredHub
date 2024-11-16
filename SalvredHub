@@ -1431,9 +1431,7 @@ local function TeleportAndKillPlayerBrookhaven(TargetPlayerBrookhaven)
             -- Retorna à posição original
             MyHRPBrookhaven.CFrame = OriginalPositionBrookhaven
             ConnectionBrookhaven:Disconnect()
-
             wait("0.9")
-            playAnim2:Stop()
             local Player = game.Players.LocalPlayer
 local BackPack = Player:WaitForChild("Backpack")
 
@@ -1473,7 +1471,7 @@ local playAnim2 = humanoid:LoadAnimation(anim2)
 playAnim2:Play()
 
 end)
-         local args = {
+local args = {
     [1] = "PickingTools",
     [2] = "Couch"
 }
