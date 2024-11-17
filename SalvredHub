@@ -2590,6 +2590,13 @@ TSBTab:AddButton({
     end
 })
 
+TSBTab:AddButton({
+    Name = "NSExpression",
+    Callback = function()
+        loadstring(game:HttpGet("https://github.com/1dontgiveaf/NSExpression/raw/main/script.lua", true))()
+    end
+})
+
 --[[
 	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
 ]]
