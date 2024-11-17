@@ -2597,6 +2597,20 @@ TSBTab:AddButton({
     end
 })
 
+TSBTab:AddButton({
+    Name = "Kade Hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/The-Strongest-Battlegrounds-KadeHub-17629"))()
+    end
+})
+
+TSBTab:AddButton({
+    Name = "Phantasm Hub",
+    Callback = function()
+        loadstring(game:HttpGet("https://rawscripts.net/raw/The-Strongest-Battlegrounds-Phantasm-TSB-15786"))()
+    end
+})
+
 --[[
 	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
 ]]
