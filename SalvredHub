@@ -2565,6 +2565,17 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/skibiditoiletfan2007/
   	end    
 })
 
+local Section = TSBTab:AddSection({
+	Name = "Scripts"
+})
+
+TSBTab:AddButton({
+    Name = "Mini Uppercut Button (SomeTimes Fail)",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/TByAQgT6"))()
+    end
+})
+
 --[[
 	WARNING: Heads up! This script has not been verified by ScriptBlox. Use at your own risk!
 ]]
