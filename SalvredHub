@@ -719,6 +719,13 @@ Universal:AddButton({
 })
 
 Universal:AddButton({
+    Name = "Lock (Battlegrounds)",
+    Callback = function()
+        loadstring(game:HttpGet("https://pastebin.com/raw/E2YA19HM"))()
+    end
+})
+
+Universal:AddButton({
 	Name = "Fly Mobile (V1.0)",
 	Callback = function()loadstring(game:HttpGet("https://pastebin.com/raw/XEhjj81x"))()
       		print("SexoKat")
