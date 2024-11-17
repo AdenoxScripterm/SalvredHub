@@ -1951,6 +1951,13 @@ Mm2:AddButton({
   	end    
 })
 
+Mm2:AddButton({
+	Name = "X HUB",
+	Callback = function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Au0yX/Community/main/XhubMM2"))()
+  	end    
+})
+
 local Section = Mm2:AddSection({
 	Name = "HubsForGame"
 })
