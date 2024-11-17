@@ -704,10 +704,19 @@ Universal:AddButton({
   	end    
 })
 
---[[
-Name = <string> - The name of the button.
-Callback = <function> - The function of the button.
-]]
+Universal:AddButton({
+    Name = "Best ShiftLock Mobile",
+    Callback = function()
+        loadstring(game:HttpGet('https://pastebin.com/raw/CjNsnSDy'))()
+    end
+})
+
+Universal:AddButton({
+    Name = "Dex Explorer Mobile",
+    Callback = function()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/REDzHUB/DEX-Explorer/main/Mobile.lua"))()
+    end
+})
 
 Universal:AddButton({
 	Name = "Fly Mobile (V1.0)",
