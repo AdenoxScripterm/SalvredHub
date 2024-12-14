@@ -437,7 +437,7 @@ PlayerTab:AddSlider({
 	Name = "Clock Time",
 	Min = 0,
 	Max = 24,
-	Default = 18,
+	Default = 12,
 	Color = Color3.fromRGB(255,255,0),
 	Increment = 1,
 	ValueName = "Clock",
