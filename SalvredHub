@@ -1,4 +1,4 @@
-local player = game.Players.LocalPlayer
+local Player = game.Players.LocalPlayer
 
 local function createBillboardGui(character)
     local head = character:WaitForChild("Head")
@@ -14,7 +14,7 @@ local function createBillboardGui(character)
     textLabel.Parent = billboardGui
     textLabel.Size = UDim2.new(1, 0, 1, 0)
     textLabel.BackgroundTransparency = 1
-    textLabel.Text = player.DisplayName -- Muestra el DisplayName del jugador
+    textLabel.Text = Player.Name -- Muestra el DisplayName del jugador
     textLabel.TextStrokeTransparency = 0 -- Agrega un contorno al texto
     textLabel.TextScaled = true -- Escala el texto para que se ajuste al tamaño del TextLabel
     textLabel.Font = Enum.Font.SourceSansBold
@@ -434,13 +434,13 @@ PlayerTab:AddSlider({
 })
 
 PlayerTab:AddSlider({
-	Name = "Slider",
+	Name = "Clock Time",
 	Min = 0,
-	Max = 20,
-	Default = 5,
-	Color = Color3.fromRGB(255,255,255),
+	Max = 24,
+	Default = 18,
+	Color = Color3.fromRGB(255,255,0),
 	Increment = 1,
-	ValueName = "bananas",
+	ValueName = "Clock",
 	Callback = function(ClockTimeVS)
 		game:GetService("Lighting").ClockTime = ClockTimeVS
 	end    
