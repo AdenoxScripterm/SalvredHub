@@ -1,4 +1,4 @@
-local Player = game.Players.LocalPlayer
+local player = game.Players.LocalPlayer
 
 local function createBillboardGui(character)
     local head = character:WaitForChild("Head")
@@ -14,7 +14,7 @@ local function createBillboardGui(character)
     textLabel.Parent = billboardGui
     textLabel.Size = UDim2.new(1, 0, 1, 0)
     textLabel.BackgroundTransparency = 1
-    textLabel.Text = Player.Name -- Muestra el DisplayName del jugador
+    textLabel.Text = player.DisplayName -- Muestra el DisplayName del jugador
     textLabel.TextStrokeTransparency = 0 -- Agrega un contorno al texto
     textLabel.TextScaled = true -- Escala el texto para que se ajuste al tamaño del TextLabel
     textLabel.Font = Enum.Font.SourceSansBold
