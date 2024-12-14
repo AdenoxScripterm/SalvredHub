@@ -17,7 +17,7 @@ local function createBillboardGui(character)
     textLabel.Text = player.DisplayName -- Muestra el DisplayName del jugador
     textLabel.TextStrokeTransparency = 0 -- Agrega un contorno al texto
     textLabel.TextScaled = true -- Escala el texto para que se ajuste al tamaño del TextLabel
-    textLabel.Font = Enum.Font.SourceSansBold
+    textLabel.Font = Enum.Font.Bangers
 
     -- Función para cambiar los colores RGB
     local function updateColor()
