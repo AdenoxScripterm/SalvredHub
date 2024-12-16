@@ -721,7 +721,7 @@ Universal:AddButton({
 Universal:AddButton({
     Name = "Lock (Battlegrounds)",
     Callback = function()
-        loadstring(game:HttpGet("https://pastebin.com/raw/E2YA19HM"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/AdenoxScripterm/LockBG/refs/heads/main/LockSC"))()
     end
 })
 
