@@ -1,3 +1,69 @@
+
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "ScreenGui"
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ResetOnSpawn = false
+
+-- Status label
+local StatusLabelOrionLib = Instance.new("TextLabel")
+StatusLabelOrionLib.Name = "StatusLabelOrionLib"
+StatusLabelOrionLib.Parent = ScreenGui
+StatusLabelOrionLib.BackgroundTransparency = 1
+StatusLabelOrionLib.Position = UDim2.new(0, 0, 0.4, 0) -- Positioned above the button
+StatusLabelOrionLib.Size = UDim2.new(0, 100, 0, 20) -- Label size
+StatusLabelOrionLib.Font = Enum.Font.SourceSans
+StatusLabelOrionLib.Text = "Status: Off" -- Initial text
+StatusLabelOrionLib.TextColor3 = Color3.fromRGB(255, 255, 255)
+StatusLabelOrionLib.TextSize = 18
+
+-- Toggle button
+local OrionLibOpenCloseToggle = Instance.new("TextButton")
+OrionLibOpenCloseToggle.Name = "OrionLibOpenCloseToggle"
+OrionLibOpenCloseToggle.Parent = ScreenGui
+OrionLibOpenCloseToggle.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Start with red (off)
+OrionLibOpenCloseToggle.BackgroundTransparency = 0.5
+OrionLibOpenCloseToggle.Position = UDim2.new(0, 0, 0.454706937, 0)
+OrionLibOpenCloseToggle.Size = UDim2.new(0, 50, 0, 50) -- Smaller size for a compact circular button
+OrionLibOpenCloseToggle.Font = Enum.Font.SourceSans
+OrionLibOpenCloseToggle.Text = "Open" -- Initial text
+OrionLibOpenCloseToggle.TextColor3 = Color3.fromRGB(248, 248, 248)
+OrionLibOpenCloseToggle.TextSize = 18
+OrionLibOpenCloseToggle.Draggable = true
+
+local Corner = Instance.new("UICorner")
+Corner.CornerRadius = UDim.new(0.5, 0) -- Make the button circular
+Corner.Parent = OrionLibOpenCloseToggle
+
+local isOn = false -- Initial state is off
+
+-- Function to handle the "On" state
+local function onButtonClicked()
+    if gethui():FindFirstChild("Orion") then
+        gethui().Orion.Enabled = true
+    end
+end
+
+-- Function to handle the "Off" state
+local function offButtonClicked()
+    if gethui():FindFirstChild("Orion") then
+        gethui().Orion.Enabled = false
+    end
+end
+
+OrionLibOpenCloseToggle.MouseButton1Click:Connect(function()
+    isOn = not isOn -- Toggle state
+    if isOn then
+        OrionLibOpenCloseToggle.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Green (on)
+        OrionLibOpenCloseToggle.Text = "Close" -- Update button text
+        StatusLabelOrionLib.Text = "Status: On" -- Update status label
+        onButtonClicked()
+    else
+        OrionLibOpenCloseToggle.BackgroundColor3 = Color3.fromRGB(0, 255, 0) -- Red (off)
+        OrionLibOpenCloseToggle.Text = "Open" -- Update button text
+        StatusLabelOrionLib.Text = "Status: Off" -- Update status label
+        offButtonClicked()
+    end
+end)
 local player = game.Players.LocalPlayer
 
 local function createBillboardGui(character)
@@ -2650,73 +2716,5 @@ elseif iconsize == "Square" then
 else
     DELTA["das"]["CornerRadius"] = UDim.new(0.20000000298023224, 0);
 end
-
-wait(5)
-
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "ScreenGui"
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ResetOnSpawn = false
-
--- Status label
-local StatusLabelOrionLib = Instance.new("TextLabel")
-StatusLabelOrionLib.Name = "StatusLabelOrionLib"
-StatusLabelOrionLib.Parent = ScreenGui
-StatusLabelOrionLib.BackgroundTransparency = 1
-StatusLabelOrionLib.Position = UDim2.new(0, 0, 0.4, 0) -- Positioned above the button
-StatusLabelOrionLib.Size = UDim2.new(0, 100, 0, 20) -- Label size
-StatusLabelOrionLib.Font = Enum.Font.SourceSans
-StatusLabelOrionLib.Text = "Status: Off" -- Initial text
-StatusLabelOrionLib.TextColor3 = Color3.fromRGB(255, 255, 255)
-StatusLabelOrionLib.TextSize = 18
-
--- Toggle button
-local OrionLibOpenCloseToggle = Instance.new("TextButton")
-OrionLibOpenCloseToggle.Name = "OrionLibOpenCloseToggle"
-OrionLibOpenCloseToggle.Parent = ScreenGui
-OrionLibOpenCloseToggle.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Start with red (off)
-OrionLibOpenCloseToggle.BackgroundTransparency = 0.5
-OrionLibOpenCloseToggle.Position = UDim2.new(0, 0, 0.454706937, 0)
-OrionLibOpenCloseToggle.Size = UDim2.new(0, 50, 0, 50) -- Smaller size for a compact circular button
-OrionLibOpenCloseToggle.Font = Enum.Font.SourceSans
-OrionLibOpenCloseToggle.Text = "Open" -- Initial text
-OrionLibOpenCloseToggle.TextColor3 = Color3.fromRGB(248, 248, 248)
-OrionLibOpenCloseToggle.TextSize = 18
-OrionLibOpenCloseToggle.Draggable = true
-
-local Corner = Instance.new("UICorner")
-Corner.CornerRadius = UDim.new(0.5, 0) -- Make the button circular
-Corner.Parent = OrionLibOpenCloseToggle
-
-local isOn = false -- Initial state is off
-
--- Function to handle the "On" state
-local function onButtonClicked()
-    if gethui():FindFirstChild("Orion") then
-        gethui().Orion.Enabled = true
-    end
-end
-
--- Function to handle the "Off" state
-local function offButtonClicked()
-    if gethui():FindFirstChild("Orion") then
-        gethui().Orion.Enabled = false
-    end
-end
-
-OrionLibOpenCloseToggle.MouseButton1Click:Connect(function()
-    isOn = not isOn -- Toggle state
-    if isOn then
-        OrionLibOpenCloseToggle.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Green (on)
-        OrionLibOpenCloseToggle.Text = "Close" -- Update button text
-        StatusLabelOrionLib.Text = "Status: On" -- Update status label
-        onButtonClicked()
-    else
-        OrionLibOpenCloseToggle.BackgroundColor3 = Color3.fromRGB(0, 255, 0) -- Red (off)
-        OrionLibOpenCloseToggle.Text = "Open" -- Update button text
-        StatusLabelOrionLib.Text = "Status: Off" -- Update status label
-        offButtonClicked()
-    end
-end)
 
 OrionLib:Init()
