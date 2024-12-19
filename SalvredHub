@@ -1,77 +1,86 @@
-local ScreenGui = Instance.new("ScreenGui")
-ScreenGui.Name = "ScreenGui"
-ScreenGui.ResetOnSpawn = false -- Evita que se elimine al respawn
+local Players = game:GetService("Players")
+local player = Players.LocalPlayer
 
--- Aseguramos que el GUI se coloque en el PlayerGui después de morir
-local function ensureGui()
-    if not game.Players.LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild("ScreenGui") then
-        ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+-- Crea el ScreenGui
+local function createScreenGui()
+    local ScreenGui = Instance.new("ScreenGui")
+    ScreenGui.Name = "ScreenGui"
+    ScreenGui.Parent = player:WaitForChild("PlayerGui")
+    ScreenGui.ResetOnSpawn = false -- Evita que se elimine al morir
+
+    -- Status label
+    local StatusLabelOrionLib = Instance.new("TextLabel")
+    StatusLabelOrionLib.Name = "StatusLabelOrionLib"
+    StatusLabelOrionLib.Parent = ScreenGui
+    StatusLabelOrionLib.BackgroundTransparency = 1
+    StatusLabelOrionLib.Position = UDim2.new(0, 0, 0.4, 0)
+    StatusLabelOrionLib.Size = UDim2.new(0, 100, 0, 20)
+    StatusLabelOrionLib.Font = Enum.Font.SourceSans
+    StatusLabelOrionLib.Text = "Status: Off"
+    StatusLabelOrionLib.TextColor3 = Color3.fromRGB(255, 255, 255)
+    StatusLabelOrionLib.TextSize = 18
+
+    -- Toggle button
+    local OrionLibOpenCloseToggle = Instance.new("TextButton")
+    OrionLibOpenCloseToggle.Name = "OrionLibOpenCloseToggle"
+    OrionLibOpenCloseToggle.Parent = ScreenGui
+    OrionLibOpenCloseToggle.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+    OrionLibOpenCloseToggle.BackgroundTransparency = 0.5
+    OrionLibOpenCloseToggle.Position = UDim2.new(0, 0, 0.454706937, 0)
+    OrionLibOpenCloseToggle.Size = UDim2.new(0, 50, 0, 50)
+    OrionLibOpenCloseToggle.Font = Enum.Font.SourceSans
+    OrionLibOpenCloseToggle.Text = "Open"
+    OrionLibOpenCloseToggle.TextColor3 = Color3.fromRGB(248, 248, 248)
+    OrionLibOpenCloseToggle.TextSize = 18
+    OrionLibOpenCloseToggle.Draggable = true
+
+    local Corner = Instance.new("UICorner")
+    Corner.CornerRadius = UDim.new(0.5, 0)
+    Corner.Parent = OrionLibOpenCloseToggle
+
+    local isOn = false -- Estado inicial
+
+    -- Función para activar
+    local function onButtonClicked()
+        if gethui():FindFirstChild("Orion") then
+            gethui().Orion.Enabled = true
+        end
     end
+
+    -- Función para desactivar
+    local function offButtonClicked()
+        if gethui():FindFirstChild("Orion") then
+            gethui().Orion.Enabled = false
+        end
+    end
+
+    -- Toggle del botón
+    OrionLibOpenCloseToggle.MouseButton1Click:Connect(function()
+        isOn = not isOn
+        if isOn then
+            OrionLibOpenCloseToggle.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+            OrionLibOpenCloseToggle.Text = "Close"
+            StatusLabelOrionLib.Text = "Status: On"
+            onButtonClicked()
+        else
+            OrionLibOpenCloseToggle.BackgroundColor3 = Color3.fromRGB(0, 255, 0)
+            OrionLibOpenCloseToggle.Text = "Open"
+            StatusLabelOrionLib.Text = "Status: Off"
+            offButtonClicked()
+        end
+    end)
 end
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-game.Players.LocalPlayer.CharacterAdded:Connect(ensureGui)
-
--- Status label
-local StatusLabelOrionLib = Instance.new("TextLabel")
-StatusLabelOrionLib.Name = "StatusLabelOrionLib"
-StatusLabelOrionLib.Parent = ScreenGui
-StatusLabelOrionLib.BackgroundTransparency = 1
-StatusLabelOrionLib.Position = UDim2.new(0, 0, 0.4, 0) -- Positioned above the button
-StatusLabelOrionLib.Size = UDim2.new(0, 100, 0, 20) -- Label size
-StatusLabelOrionLib.Font = Enum.Font.SourceSans
-StatusLabelOrionLib.Text = "Status: Off" -- Initial text
-StatusLabelOrionLib.TextColor3 = Color3.fromRGB(255, 255, 255)
-StatusLabelOrionLib.TextSize = 18
-
--- Toggle button
-local OrionLibOpenCloseToggle = Instance.new("TextButton")
-OrionLibOpenCloseToggle.Name = "OrionLibOpenCloseToggle"
-OrionLibOpenCloseToggle.Parent = ScreenGui
-OrionLibOpenCloseToggle.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Start with red (off)
-OrionLibOpenCloseToggle.BackgroundTransparency = 0.5
-OrionLibOpenCloseToggle.Position = UDim2.new(0, 0, 0.454706937, 0)
-OrionLibOpenCloseToggle.Size = UDim2.new(0, 50, 0, 50) -- Smaller size for a compact circular button
-OrionLibOpenCloseToggle.Font = Enum.Font.SourceSans
-OrionLibOpenCloseToggle.Text = "Open" -- Initial text
-OrionLibOpenCloseToggle.TextColor3 = Color3.fromRGB(248, 248, 248)
-OrionLibOpenCloseToggle.TextSize = 18
-OrionLibOpenCloseToggle.Draggable = true
-
-local Corner = Instance.new("UICorner")
-Corner.CornerRadius = UDim.new(0.5, 0) -- Make the button circular
-Corner.Parent = OrionLibOpenCloseToggle
-
-local isOn = false -- Initial state is off
-
--- Function to handle the "On" state
-local function onButtonClicked()
-    if gethui():FindFirstChild("Orion") then
-        gethui().Orion.Enabled = true
-    end
-end
-
--- Function to handle the "Off" state
-local function offButtonClicked()
-    if gethui():FindFirstChild("Orion") then
-        gethui().Orion.Enabled = false
-    end
-end
-
-OrionLibOpenCloseToggle.MouseButton1Click:Connect(function()
-    isOn = not isOn -- Toggle state
-    if isOn then
-        OrionLibOpenCloseToggle.BackgroundColor3 = Color3.fromRGB(255, 0, 0) -- Green (on)
-        OrionLibOpenCloseToggle.Text = "Close" -- Update button text
-        StatusLabelOrionLib.Text = "Status: On" -- Update status label
-        onButtonClicked()
-    else
-        OrionLibOpenCloseToggle.BackgroundColor3 = Color3.fromRGB(0, 255, 0) -- Red (off)
-        OrionLibOpenCloseToggle.Text = "Open" -- Update button text
-        StatusLabelOrionLib.Text = "Status: Off" -- Update status label
-        offButtonClicked()
+-- Verificar y recrear el GUI tras la muerte
+player.CharacterAdded:Connect(function()
+    task.wait(0.5) -- Espera a que cargue el personaje
+    if not player:FindFirstChild("PlayerGui"):FindFirstChild("ScreenGui") then
+        createScreenGui()
     end
 end)
+
+-- Crear el GUI inicial
+createScreenGui()
 
 local player = game.Players.LocalPlayer
 
