@@ -1,8 +1,16 @@
-
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.Name = "ScreenGui"
+ScreenGui.ResetOnSpawn = false -- Evita que se elimine al respawn
+
+-- Aseguramos que el GUI se coloque en el PlayerGui después de morir
+local function ensureGui()
+    if not game.Players.LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild("ScreenGui") then
+        ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+    end
+end
+
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
-ScreenGui.ResetOnSpawn = false
+game.Players.LocalPlayer.CharacterAdded:Connect(ensureGui)
 
 -- Status label
 local StatusLabelOrionLib = Instance.new("TextLabel")
@@ -64,6 +72,7 @@ OrionLibOpenCloseToggle.MouseButton1Click:Connect(function()
         offButtonClicked()
     end
 end)
+
 local player = game.Players.LocalPlayer
 
 local function createBillboardGui(character)
