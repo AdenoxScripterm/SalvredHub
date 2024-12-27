@@ -4,7 +4,7 @@ local player = Players.LocalPlayer
 -- Crea el ScreenGui
 local function createScreenGui()
     -- Verifica si el ScreenGui ya existe y, si no, lo crea
-    local existingGui = player:FindFirstChild("PlayerGui"):FindFirstChild("ScreenGui")
+    local existingGui = game.CoreGui:FindFirstChild("ScreenGui")
     if existingGui then return end -- Si ya existe, no hacer nada
 
     local ScreenGui = Instance.new("ScreenGui")
@@ -74,12 +74,6 @@ local function createScreenGui()
         end
     end)
 end
-
--- Detectar cuando el personaje reaparece
-player.CharacterAdded:Connect(function()
-    wait(0.5) -- Espera a que el personaje se cargue
-    createScreenGui() -- Crea el GUI si no existe
-end)
 
 -- Crear el GUI inicialmente
 createScreenGui()
